@@ -12,38 +12,50 @@
         <h2 class="page-header">Intention Timer</h2>
     </header>
     <main>
-        <h2>New Activity</h2>
-        <section>
-            <p>Select Category:</p>
+        <section class="main-panel">
+            <section class="box">
+            <h2 class="section-title">New Activity</h2>
+            <section class="main-form">
+                <p>Select a category:</p>
+                <article class="category-btns">
+                    <button class="study-btn" > 
+                        <img src="./assets/study.svg" id="study-graphic" alt="">Study
+                    </button>
+                    <button class="meditate-btn">
+                        <img src="./assets/meditate.svg" id="meditate-graphic">Meditate</button>
+                    <button class="exercise-btn">
+                        <img src="./assets/exercise.svg" id="exercise-graphic">Exercise</button>
+                </article>
+                <article class="activity-goal">
+                    <label>What would you like to accomplish during this time?</label>
+                    <input class="goal">
+                </article>
+                <section class="duration">
+                    <article class="minutes">
+                        <label>Minutes</label>
+                        <input class="time-input">
+                    </article>
+                    <article class="seconds">
+                        <label>Seconds</label>
+                        <input class="time-input">
+                    </article>
+                </section>
+                <button class="start-activity-btn">START ACTIVITY</button>
+            </section>        
+            </section>
+        </section>
+        <section class="timer-view hidden">
+            <h2>Current Activity</h2>
             <article>
-                <button class="study-btn">Study</button>
-                <button class="meditate-btn">Meditate</button>
-                <button class="exercise-btn">Exercise</button>
+            <h3 class="section-title">activity label goes here</h3>
+            <p class="timer">Timer</p>
+            <button class="">START</button>
             </article>
-            <article>
-                <label>What would you like to accomplish during this time</label>
-                <input>
-            </article>
-            <article>
-                <label>Minutes</label>
-                <input>
-                <label>Seconds</label>
-                <input>
-            </article>
-            <button>START ACTIVITY</button>
+        </section>
+        <section class="history-panel">
+            <h2 class="section-title">Past Activities</h2>
+            <p></p>
         </section>
     </main>
-    <section class="timer-view hidden">
-        <h2>Current Activity</h2>
-        <article>
-          <h3 class="">activity label goes here</h3>
-          <p class="timer">Timer</p>
-          <button>START</button>
-        </article>
-    </section>
-    <section class="history-panel">
-        <h2>Past Activities</h2>
-        <p></p>
-    </section>
 </body>
 </html>
