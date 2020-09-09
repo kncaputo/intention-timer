@@ -18,6 +18,30 @@ main{
     height: 100vh;
 }
 
+.study-btn{
+    display: flex;
+    margin: 10px;
+
+}
+/* .category-btns button{
+    display:flex; 
+    justify-content: space-between; 
+    flex-direction: row; 
+    justify-items: space-between;  
+}   */
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding: 30px;
+    background-color: #46424D;
+    margin: 20px;
+    border-radius: 5px;
+    padding-left: 78px;
+    padding-right: 78px;
+}
+
 .main-panel{
     width: 70vw;
 }
