@@ -18,17 +18,10 @@ main{
     height: 100vh;
 }
 
-.study-btn{
+ .category-btns{
     display: flex;
-    margin: 10px;
-
-}
-/* .category-btns button{
-    display:flex; 
-    justify-content: space-between; 
-    flex-direction: row; 
-    justify-items: space-between;  
-}   */
+    justify-content: space-between;
+}   
 
 .main-form{
     display: flex;
@@ -40,10 +33,32 @@ main{
     border-radius: 5px;
     padding-left: 78px;
     padding-right: 78px;
+    width: 50vw
 }
 
 .main-panel{
-    width: 70vw;
+    width: 70%;
+    height: 80vh;
+}
+ .box {
+     position: absolute;
+ }
+#study-graphic{
+    height: 40px;
+    width: 40px;
+    height: 25px;
+}
+
+#meditate-graphic{
+    height: 40px;
+    width: 40px;
+    height: 25px;
+}
+
+#exercise-graphic{
+    height: 40px;
+    width: 40px;
+    height: 25px;
 }
 
 .main-panel p{
@@ -61,6 +76,53 @@ body{
 
 .hidden{
     display: none
+}
+
+.goal{
+    border: none;
+    border-bottom: solid #FFF 1px;
+    background: transparent;
+}
+
+.activity-goal{
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.duration{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+.minutes{
+    display:flex;
+    flex-direction: column;
+}
+
+.seconds{
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.start-activity-btn{
+    align-self: flex-end;
+    border-style: none;
+    border-radius: 4px;
+    color: #46424D;
+    margin: 0;
+    height: 2em;
+    width: 12em;
+}
+
+.time-input{
+    border: none;
+    border-bottom: solid #FFF 1px;
+    background: transparent;
 }
 
 header{
@@ -93,15 +155,45 @@ header{
 }
 
 .study-btn{
-
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 1.25em;
+    height: 75px;
+    width: 140px;
 }
 
 .meditate-btn{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 1.25em;
+    height: 75px;
+    width: 140px;
 }
 
 .exercise-btn{
-
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 1.25em;
+    height: 75px;
+    width: 140px;
 }
 
 .history-panel{
@@ -112,3 +204,4 @@ header{
 .history-panel h2{
     margin-left: 20px;
 }
+
