@@ -21,7 +21,7 @@ main{
  .category-btns{
     display: flex;
     justify-content: space-between;
-}   
+}
 
 .main-form{
     display: flex;
@@ -43,26 +43,40 @@ main{
  .box {
      position: absolute;
  }
+
+ /* TO-DO Potential area for refactoring */
+
 #study-graphic{
-    height: 40px;
     width: 40px;
     height: 25px;
+}
+
+#active-study {
+  width: 40px;
+  height: 25px;
 }
 
 #meditate-graphic{
-    height: 40px;
     width: 40px;
     height: 25px;
+}
+#active-meditate {
+  width: 40px;
+  height: 25px;
 }
 
 #exercise-graphic{
-    height: 40px;
     width: 40px;
     height: 25px;
 }
 
+#active-exercise {
+  width: 40px;
+  height: 25px;
+}
+
 .main-panel p{
-    color:white 
+    color:white
 }
 
 .main-panel label{
@@ -106,7 +120,7 @@ body{
 .seconds{
     display:flex;
     flex-direction: column;
-    
+
 }
 
 .start-activity-btn{
@@ -134,7 +148,7 @@ header{
 }
 
 .page-header{
-   
+
     display: inline-flex;
     margin: 0 0 0 0;
 }
@@ -168,6 +182,11 @@ header{
     width: 140px;
 }
 
+.study-click {
+  color: #B3FD78;
+  border-color: #B3FD78;
+}
+
 .meditate-btn{
     display: flex;
     flex-direction: column;
@@ -180,6 +199,11 @@ header{
     font-size: 1.25em;
     height: 75px;
     width: 140px;
+}
+
+.meditate-click {
+  color: #C278FD;
+  border-color: #C278FD
 }
 
 .exercise-btn{
@@ -196,6 +220,11 @@ header{
     width: 140px;
 }
 
+.exercise-click {
+  color: #FD8078;
+  border-color: #FD8078;
+}
+
 .history-panel{
     border-left: solid 1px #CBC9CF;
     width: 30%;
@@ -204,4 +233,3 @@ header{
 .history-panel h2{
     margin-left: 20px;
 }
-
