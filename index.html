@@ -17,18 +17,18 @@
             <section class="main-form">
               <p>Select a category:</p>
               <section class="box">
-                <article class="category-btns">
-                    <button class="activity-btn study-btn" >
+                <article class="category-btns"id="user-choice">
+                    <button type='radio'name='user-choice'class="activity-btn study-btn" >
                         <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
                         <img src="./assets/study-active.svg" class="mini-img hidden" id="active-study" alt=""> Study
                     </button>
-                    <button class="activity-btn meditate-btn">
+                    <button type='radio'name='user-choice'class="activity-btn meditate-btn">
                         <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
                         <img src="./assets/meditate-active.svg" class="mini-img hidden" id="active-meditate" alt=""> Meditate</button>
-                    <button class="activity-btn exercise-btn">
+                    <button type='radio'name='user-choice'class="activity-btn exercise-btn">
                         <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
                         <img src="./assets/exercise-active.svg" class="mini-img hidden" id="active-exercise" alt=""> Exercise</button>
-                </article>
+                    </article>
                 <article class="activity-goal">
                     <label>What would you like to accomplish during this time?</label>
                     <input class="goal">
@@ -36,11 +36,11 @@
                 <section class="duration">
                     <article class="minutes">
                         <label>Minutes</label>
-                        <input class="time-input">
+                        <input type='text' class="time-input min">
                     </article>
                     <article class="seconds">
                         <label>Seconds</label>
-                        <input class="time-input">
+                        <input class="time-input sec">
                     </article>
                 </section>
                 <article class="start-container">
