@@ -76,6 +76,8 @@ body {
 
 input {
   padding-top: 25px;
+  outline: none;
+  color: white;
 }
 .duration{
   display:flex;
@@ -114,6 +116,7 @@ input {
   border-bottom: solid #FFF 1px;
   background: transparent;
   width: 20em;
+  outline: none;
 }
 
 header {
@@ -136,9 +139,9 @@ header {
   margin-left: 20px;
 }
 
-.timer-view-hidden {
+/* .timer-view-hidden {
 
-}
+} */
 
 .timer {
 
@@ -157,6 +160,7 @@ header {
   width: 7em;
   margin: 0 10px 0 10px;
   padding: 0 6px 0 6px;
+  outline: none;
 }
 
 .study-click {
