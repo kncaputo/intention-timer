@@ -13,21 +13,21 @@
     </header>
     <main>
         <section class="main-panel">
-            <section class="box">
             <h2 class="section-title">New Activity</h2>
             <section class="main-form">
-                <p>Select a category:</p>
+              <p>Select a category:</p>
+              <section class="box">
                 <article class="category-btns">
-                    <button class="study-btn" >
-                        <img src="./assets/study.svg" id="study-graphic" alt="">
-                        <img src="./assets/study-active.svg" class="hidden" id="active-study" alt=""> Study
+                    <button class="activity-btn study-btn" >
+                        <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
+                        <img src="./assets/study-active.svg" class="mini-img hidden" id="active-study" alt=""> Study
                     </button>
-                    <button class="meditate-btn">
-                        <img src="./assets/meditate.svg" id="meditate-graphic">
-                        <img src="./assets/meditate-active.svg" class="hidden" id="active-meditate" alt=""> Meditate</button>
-                    <button class="exercise-btn">
-                        <img src="./assets/exercise.svg" id="exercise-graphic">
-                        <img src="./assets/exercise-active.svg" class="hidden" id="active-exercise" alt=""> Exercise</button>
+                    <button class="activity-btn meditate-btn">
+                        <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
+                        <img src="./assets/meditate-active.svg" class="mini-img hidden" id="active-meditate" alt=""> Meditate</button>
+                    <button class="activity-btn exercise-btn">
+                        <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
+                        <img src="./assets/exercise-active.svg" class="mini-img hidden" id="active-exercise" alt=""> Exercise</button>
                 </article>
                 <article class="activity-goal">
                     <label>What would you like to accomplish during this time?</label>
@@ -43,8 +43,10 @@
                         <input class="time-input">
                     </article>
                 </section>
-                <button class="start-activity-btn">START ACTIVITY</button>
-            </section>
+                <article class="start-container">
+                  <button class="start-activity-btn">START ACTIVITY</button>
+                </article>
+              </section>
             </section>
         </section>
         <section class="timer-view hidden">
@@ -57,7 +59,7 @@
         </section>
         <section class="history-panel">
             <h2 class="section-title">Past Activities</h2>
-            <p></p>
+            <p class="default-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
         </section>
     </main>
 </body>

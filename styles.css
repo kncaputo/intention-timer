@@ -8,178 +8,155 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC  */
-*{
-    font-family: "montserrat";
+* {
+  font-family: "montserrat";
 }
 
-main{
-    display:flex;
-    flex-direction: row;
-    height: 100vh;
+main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
 
- .category-btns{
-    display: flex;
-    justify-content: space-between;
+ .category-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
 }
 
-.main-form{
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    padding: 30px;
-    background-color: #46424D;
-    margin: 20px;
-    border-radius: 5px;
-    padding-left: 78px;
-    padding-right: 78px;
-    width: 50vw
+.main-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  padding: 30px;
+  /* flex: 1; */
+  background-color: #46424D;
+  margin: 20px;
+  border-radius: 5px;
+  padding-left: 78px;
+  padding-right: 78px;
+  width: 50vw
 }
-
-.main-panel{
-    width: 70%;
-    height: 80vh;
-}
- .box {
-     position: absolute;
- }
 
  /* TO-DO Potential area for refactoring */
-
-#study-graphic{
-    width: 40px;
-    height: 25px;
-}
-
-#active-study {
+.mini-img {
   width: 40px;
   height: 25px;
 }
 
-#meditate-graphic{
-    width: 40px;
-    height: 25px;
-}
-#active-meditate {
-  width: 40px;
-  height: 25px;
-}
-
-#exercise-graphic{
-    width: 40px;
-    height: 25px;
-}
-
-#active-exercise {
-  width: 40px;
-  height: 25px;
-}
-
-.main-panel p{
+.main-panel p {
     color:white
 }
 
-.main-panel label{
-    color: white
+.main-panel label {
+  color: white
 }
 
-body{
-    background: #2B2733;
-    margin: 0;
+body {
+  background: #2B2733;
+  margin: 0;
 }
 
-.hidden{
-    display: none
+.hidden {
+  display: none
 }
 
-.goal{
-    border: none;
-    border-bottom: solid #FFF 1px;
-    background: transparent;
+.goal {
+  border: none;
+  border-bottom: solid #FFF 1px;
+  background: transparent;
 }
 
-.activity-goal{
-    display: flex;
-    flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
+.activity-goal {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
+input {
+  padding-top: 25px;
+}
 .duration{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 50px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 50px;
 }
 
-.minutes{
-    display:flex;
-    flex-direction: column;
+.minutes {
+  display:flex;
+  flex-direction: column;
 }
 
-.seconds{
-    display:flex;
-    flex-direction: column;
+.seconds {
+  display:flex;
+  flex-direction: column;
+}
+
+.start-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 20px;
+}
+
+.start-activity-btn {
+  border-style: none;
+  border-radius: 4px;
+  color: #46424D;
+  margin: 0;
+  height: 2em;
+  width: 12em;
+}
+
+.time-input {
+  border: none;
+  border-bottom: solid #FFF 1px;
+  background: transparent;
+  width: 20em;
+}
+
+header {
+  background-color:#46424D;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.page-header {
+  display: inline-flex;
+  margin: 0 0 0 0;
+}
+
+.section-title {
+  color:#CBC9CF;
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.timer-view-hidden {
 
 }
 
-.start-activity-btn{
-    align-self: flex-end;
-    border-style: none;
-    border-radius: 4px;
-    color: #46424D;
-    margin: 0;
-    height: 2em;
-    width: 12em;
-}
-
-.time-input{
-    border: none;
-    border-bottom: solid #FFF 1px;
-    background: transparent;
-}
-
-header{
-    background-color:#46424D;
-    color: #FFF;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-}
-
-.page-header{
-
-    display: inline-flex;
-    margin: 0 0 0 0;
-}
-
-.section-title{
-    color:#CBC9CF;
-    margin: 0;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.timer-view-hidden{
+.timer {
 
 }
-
-.timer{
-
-}
-
-.study-btn{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 2px solid #FFF;
-    border-radius: 4px;
-    color: #FFF;
-    font-size: 1.25em;
-    height: 75px;
-    width: 140px;
+.activity-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid #FFF;
+  border-radius: 4px;
+  color: #FFF;
+  font-size: 1.25em;
+  height: 4em;
+  width: 7em;
+  margin: 0 10px 0 10px;
+  padding: 0 6px 0 6px;
 }
 
 .study-click {
@@ -187,37 +164,9 @@ header{
   border-color: #B3FD78;
 }
 
-.meditate-btn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 2px solid #FFF;
-    border-radius: 4px;
-    color: #FFF;
-    font-size: 1.25em;
-    height: 75px;
-    width: 140px;
-}
-
 .meditate-click {
   color: #C278FD;
   border-color: #C278FD
-}
-
-.exercise-btn{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 2px solid #FFF;
-    border-radius: 4px;
-    color: #FFF;
-    font-size: 1.25em;
-    height: 75px;
-    width: 140px;
 }
 
 .exercise-click {
@@ -225,11 +174,21 @@ header{
   border-color: #FD8078;
 }
 
-.history-panel{
-    border-left: solid 1px #CBC9CF;
-    width: 30%;
+.history-panel {
+  display: flex;
+  flex-direction: column;
+  border-left: solid 1px #CBC9CF;
+  width: 30%;
 }
 
-.history-panel h2{
-    margin-left: 20px;
+.history-panel h2 {
+  margin-left: 20px;
+}
+
+.default-message {
+  color: #CBC9CF;
+  text-align: center;
+  padding: 10px 20px 0px 20px;
+  /* flex-shrink: 3 */
+  min-width: 335px;
 }
