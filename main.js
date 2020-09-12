@@ -44,16 +44,16 @@ function startActivity() {
   var min = document.querySelector('#min').value;
   var sec = document.querySelector('#sec').value;
 
-  if (goal === "") {triggerAlert("goal")};
-  if (min === "") {triggerAlert("time")};
-  if (sec === "") {triggerAlert("time")};
+  if (goal === "") {triggerGoalAlert("goal")};
+  if (min === "") {triggerTimeAlert("time")};
+  // if (sec === "") {triggerTimeAlert("time")};
 
   currentActivity = new Activity (catValue, goal, min, sec);
 }
 
-function triggerAlert(alertNeeded) {
-
+function triggerGoalAlert(alertNeeded) {
   if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
-  // The code below is not working and I don't know why
-  // if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+}
+function triggerTimeAlert(timeAlert) {
+  if (triggerTimeAlert === "time") {document.querySelector('#need-duration').classList.toggle('hidden');}
 }
