@@ -29,7 +29,6 @@ main {
   flex-direction: column;
   align-content: space-between;
   padding: 30px;
-  /* flex: 1; */
   background-color: #46424D;
   margin: 20px;
   border-radius: 5px;
@@ -39,9 +38,43 @@ main {
 }
 
  /* TO-DO Potential area for refactoring */
+
+ /* ------- Buttons -------- */
 .mini-img {
   width: 40px;
   height: 25px;
+}
+
+.category-btns label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: white 2px solid;
+  border-radius: 5px;
+  height: 4em;
+  width: 8em;
+  text-align: center;
+}
+
+.category-btns input.study[type='radio']:checked + label.study {
+  color: #B3FD78;
+  border-color: #B3FD78;
+}
+
+/* #study-graphic {
+  background-image: url(./assets/study.svg)
+
+} */
+.category-btns input.meditate[type='radio']:checked + label.meditate {
+  color: #C278FD;
+  border-color: #C278FD;
+}
+
+.category-btns input.exercise[type='radio']:checked + label.exercise {
+  color: #FD8078;
+  border-color: #FD8078;
 }
 
 .main-panel p {
@@ -74,11 +107,6 @@ body {
   padding-bottom: 60px;
 }
 
-input {
-  padding-top: 25px;
-  outline: none;
-  color: white;
-}
 .duration{
   display:flex;
   flex-direction: row;
@@ -137,45 +165,6 @@ header {
   margin: 0;
   margin-top: 20px;
   margin-left: 20px;
-}
-
-/* .timer-view-hidden {
-
-} */
-
-.timer {
-
-}
-.activity-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 2px solid #FFF;
-  border-radius: 4px;
-  color: #FFF;
-  font-size: 1.25em;
-  height: 4em;
-  width: 7em;
-  margin: 0 10px 0 10px;
-  padding: 0 6px 0 6px;
-  outline: none;
-}
-
-.study-click {
-  color: #B3FD78;
-  border-color: #B3FD78;
-}
-
-.meditate-click {
-  color: #C278FD;
-  border-color: #C278FD
-}
-
-.exercise-click {
-  color: #FD8078;
-  border-color: #FD8078;
 }
 
 .history-panel {
