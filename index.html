@@ -18,39 +18,52 @@
               <p>Select a category:</p>
               <section class="box">
                 <form class="category-btns button-wrap"id="user-choice">
-                  <input type="radio" id="study" name="user-choice" value="study" class="hidden study">
-                  <label for="study" class="study">
-                    <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
-                    <img src="./assets/study-active.svg" class="mini-img hidden" id="active-study" alt="">
-                    Study
-                  </label>
-                  <input type="radio" id="meditate" name="user-choice" value="meditate" class="hidden meditate">
-                  <label for="meditate" class="meditate">
-                    <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
-                    <img src="./assets/meditate-active.svg" class="mini-img hidden" id="active-meditate" alt="">
-                    Meditate
-                  </label>
-                  <input type="radio" id="exercise" name="user-choice" value="study" class="hidden exercise">
-                  <label for="exercise" class="exercise">
-                    <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
-                    <img src="./assets/exercise-active.svg" class="mini-img hidden" id="active-exercise" alt="">
-                    Exercise
-                  </label>
+                  <div class="study-btn">
+                    <input type="radio" id="study" name="user-choice" value="study" class="hidden study">
+                    <label for="study" class="study">
+                      <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
+                      <!-- <img src="./assets/study-active.svg" class="mini-img hidden" id="active-study" alt=""> -->
+                      Study
+                    </label>
+                  </div>
+                  <div>
+                    <input type="radio" id="meditate" name="user-choice" value="meditate" class="hidden meditate">
+                    <label for="meditate" class="meditate"><img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
+                      <!-- <img src="./assets/meditate-active.svg" class="mini-img hidden" id="active-meditate" alt=""> -->
+                      Meditate
+                    </label>
+                  </div>
+                  <div>
+                    <input type="radio" id="exercise" name="user-choice" value="study" class="hidden exercise">
+                    <label for="exercise" class="exercise">
+                      <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
+                      <!-- <img src="./assets/exercise-active.svg" class="mini-img hidden" id="active-exercise" alt=""> -->
+                      Exercise
+                    </label>
+                  </div>
                 </form>
-                <article class="activity-goal">
+                <form name="goal-form" class="activity-goal" id="goal-form">
                   <label>What would you like to accomplish during this time?</label>
-                  <input class="goal">
-                </article>
+                  <input name="goal" id="goal">
+                  <div class="alert need-goal hidden">
+                    <img src="./assets/warning.svg" class="alert-msg">
+                    <p class="alert-msg">A duration is required.</p>
+                  </div>
+                </form>
                 <section class="duration">
-                  <article class="minutes">
+                  <form class="minutes">
                     <label>Minutes</label>
-                    <input type='text' class="time-input min">
-                  </article>
-                  <article class="seconds">
+                    <input type='text' class="time-input" id="min">
+                  </form>
+                  <form class="seconds">
                     <label>Seconds</label>
-                    <input class="time-input sec">
-                  </article>
+                    <input class="time-input" id="sec">
+                  </form>
                 </section>
+                <div class="alert need-duration hidden">
+                  <img src="./assets/warning.svg" class="alert-msg">
+                  <p class="alert-msg">A duration is required.</p>
+                </div>
                 <article class="start-container">
                   <button class="start-activity-btn">START ACTIVITY</button>
                 </article>
