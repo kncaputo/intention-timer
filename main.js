@@ -1,10 +1,12 @@
 var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
+var timerBtn = document.querySelector(".timer-btn");
 
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
+timerBtn.addEventListener('click', startTimer);
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
@@ -39,39 +41,32 @@ function removeActiveBtnState() {
 }
 
 function startActivity() {
-  var catValue = document.querySelector('.category-btns').elements['user-choice'].value;
-  var goal = document.querySelector('#goal').value;
-  var min = document.querySelector('#min').value;
-  var sec = document.querySelector('#sec').value;
+  var catValue = document.querySelector(".category-btns").elements["user-choice"].value;
+  var goal = document.querySelector("#goal").value;
+  var min = document.querySelector("#min").value;
+  var sec = document.querySelector("#sec").value;
 
-  validateInput(goal, min, sec);
-  min = parseInt(min)
-  sec = parseInt(sec)
-  currentActivity = new Activity(catValue, goal, min, sec);
-  switchView()
-}
-
-function startTimer() {
-  var timerBtn = document.querySelector(".timer-btn");
-}
-
-function validateInput(goal, min, sec) {
-  if (!goal) {
-    triggerAlert("goal")
-  };
-  if (!min || !sec) {
-    triggerAlert("time")
+  if (validateInput(catValue, goal, min, sec)) {
+    createInstance(catValue, goal, min, sec);
   };
 }
 
+function validateInput(catValue, goal, min, sec) {
+  if (!goal) {triggerAlert("goal");}
+  else if (!min || !sec) {triggerAlert("time");}
+  else if (min > 59 || sec > 59) {triggerAlert("tooLarge");}
+  return true;
+}
+
+function createInstance(catValue, goal, min, sec) {
+  currentActivity = new Activity(catValue, goal, parseInt(min), parseInt(sec));
+  switchView();
+}
 
 function triggerAlert(alertNeeded) {
-  if (alertNeeded === "goal") {
-    document.querySelector('.need-goal').classList.toggle('hidden');
-  }
-  if (alertNeeded === "time") {
-    document.querySelector('.need-duration').classList.toggle('hidden');
-  }
+  if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
+  if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+  if (alertNeeded === "tooLarge") {document.querySelector('.limit-duration').classList.toggle('hidden');}
 }
 
 function switchView() {
@@ -96,3 +91,4 @@ function formatTime() {
   }
   displayInput(`${minutes}:${seconds}`);
 }
+functi
