@@ -19,7 +19,7 @@ main {
 }
 
 .hidden {
-  display: none !important
+  display: none !important;
 }
 
  .category-btns {
@@ -41,9 +41,6 @@ main {
   width: 50vw
 }
 
- /* TO-DO Potential area for refactoring */
-
- /* ------- Buttons -------- */
 .mini-img {
   height: 25px;
 }
@@ -66,10 +63,6 @@ main {
   border-color: #B3FD78;
 }
 
-/* #study-graphic {
-  background-image: url(./assets/study.svg)
-
-} */
 .category-btns input.meditate[type='radio']:checked + label.meditate {
   color: #C278FD;
   border-color: #C278FD;
@@ -123,19 +116,18 @@ body {
 
 
 .duration{
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* padding-bottom: 50px; */
 }
 
 .minutes {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
 .seconds {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -175,7 +167,7 @@ header {
 
 .page-header {
   display: inline-flex;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .section-title {
@@ -200,6 +192,5 @@ header {
   color: #CBC9CF;
   text-align: center;
   padding: 10px 20px 0px 20px;
-  /* flex-shrink: 3 */
   min-width: 335px;
 }

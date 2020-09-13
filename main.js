@@ -1,12 +1,6 @@
-var studyButton = document.querySelector(".study-btn");
-var meditateButton = document.querySelector(".meditate-btn");
-var exerciseButton = document.querySelector(".exercise-btn");
 var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
-// var goal = document.querySelector('.goal');
-// var min = document.querySelector('.min');
-// var sec = document.querySelector('.sec');
 
 var currentActivity;
 
@@ -54,6 +48,6 @@ function startActivity() {
 function triggerAlert(alertNeeded) {
   if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
   // The code below is not working and I don't know why
-
-  if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+  //
+  // if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
 }
