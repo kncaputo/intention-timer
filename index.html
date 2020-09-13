@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <link rel="stylesheet" href="./styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
@@ -8,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <header>
     <h2 class="page-header">Intention Timer</h2>
@@ -42,27 +40,33 @@
               </label>
             </div>
           </form>
-          <form name="goal-form" class="activity-goal" id="goal-form">
-            <label>What would you like to accomplish during this time?</label>
-            <input name="goal" id="goal">
-            <div class="alert need-goal hidden">
-              <img src="./assets/warning.svg" class="alert-msg">
-              <p class="alert-msg">A goal is required.</p>
-            </div>
-          </form>
-          <section class="duration">
-            <form class="minutes">
-              <label>Minutes</label>
-              <input type='text' class="time-input" id="min">
+          <section class="goal-container">
+            <form name="goal-form" class="activity-goal" id="goal-form">
+              <label>What would you like to accomplish during this time?</label>
+              <input name="goal" id="goal">
+              <div class="alert need-goal hidden">
+                <img src="./assets/warning.svg" class="alert-msg">
+                <p class="alert-msg">A goal is required.</p>
+              </div>
             </form>
-            <form class="seconds">
-              <label>Seconds</label>
-              <input class="time-input" id="sec">
-            </form>
+            <article class="duration">
+              <form class="minutes">
+                <label>Minutes</label>
+                <input type='text' class="time-input" id="min">
+              </form>
+              <form class="seconds">
+                <label>Seconds</label>
+                <input class="time-input" id="sec">
+              </form>
+            </article>
           </section>
           <div class="alert need-duration hidden">
             <img src="./assets/warning.svg" class="alert-msg">
             <p class="alert-msg">A duration is required.</p>
+          </div>
+          <div class="alert limit-duration hidden">
+            <img src="./assets/warning.svg" class="alert-msg">
+            <p class="alert-msg">Limit duration to 59 minutes and 59 seconds.</p>
           </div>
           <article class="start-container">
             <button class="start-activity-btn">START ACTIVITY</button>

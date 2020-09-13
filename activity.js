@@ -8,8 +8,8 @@ class Activity {
     this.completed = false;
   }
 
-  countdown() {
-
+  startTimer() {
+    
   }
 
   markComplete() {
@@ -17,6 +17,6 @@ class Activity {
   }
 
   saveToStorage() {
-    
+
   }
 }
