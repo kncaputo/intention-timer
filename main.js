@@ -1,20 +1,8 @@
-var studyButton = document.querySelector(".study-btn");
-var meditateButton = document.querySelector(".meditate-btn");
-var exerciseButton = document.querySelector(".exercise-btn");
-var studyGraphic = document.querySelector("#study-graphic");
-var activeStudy = document.querySelector("#active-study")
-var meditateGraphic = document.querySelector("#meditate-graphic");
-var activeMeditate = document.querySelector("#active-meditate");
-var exerciseGraphic = document.querySelector("#exercise-graphic");
-var activeExercise = document.querySelector("#active-exercise");
 var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
-var categoryBtn = document.querySelector('.category-btns');
-var goal = document.querySelector('.goal');
-var min = document.querySelector('.min');
-var sec = document.querySelector('.sec');
+var categoryBtns = document.querySelector('.category-btns');
 
-var currentActivity = new Activity;
+var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
 
@@ -25,54 +13,41 @@ inputBox.addEventListener("keydown", function startActivity(event){
   }
 })
 
-// categoryBtn.addEventListener('click', function selectActivity(event){
-//   event.preventDefault();
-// })
-//
-// categoryBtn.addEventListener('click', function(event) {
-//     if (event.target.className === 'study-btn') {
-//       this.category = "Study";
-//       console.log(this.category)
-//     }
-//     if (event.target.className === 'meditate-btn') {
-//       this.category = "Meditate";
-//     }
-//     if (event.target.className === 'exercise-btn') {
-//       this.category = "Exercise";
-//     }
-// })
+categoryBtns.addEventListener('click', function(event) {
+  if (event.target.className === 'study') {activateBtn('study');}
+  if (event.target.className === 'meditate') {activateBtn('meditate');}
+  if (event.target.className === 'exercise') {activateBtn('exercise');}
+})
 
-// TO-DO Potential refactoring
+function activateBtn(category) {
+  removeActiveBtnState(category);
+  var imgId = `${category}-graphic`;
+  document.getElementById(imgId).src = `./assets/${category}-active.svg`
+}
 
-// function selectStudy() {
-//   studyButton.classList.toggle("study-click");
-//   studyGraphic.classList.toggle("hidden");
-//   activeStudy.classList.toggle("hidden");
-// }
-//
-// function selectMeditate() {
-//   meditateButton.classList.toggle("meditate-click");
-//   meditateGraphic.classList.toggle("hidden");
-//   activeMeditate.classList.toggle("hidden");
-// }
-//
-// function selectExercise() {
-//   exerciseButton.classList.toggle("exercise-click");
-//   exerciseGraphic.classList.toggle("hidden");
-//   activeExercise.classList.toggle("hidden");
-// }
-
-function startActivity(){
-  var catValue = document.querySelector('.category-btns').elements['user-choice'].value;
-
-  if (isNaN(min.value) === true || isNaN(sec.value) === true){
-    this.minutes = min.value
-    this.seconds = sec.value
-  } else if(goal.value !== undefined) {
-    this.description = goal.value
-    console.log(currentActivity)
-  } else if(catValue !== undefined) {
-    this.category = catValue;
-    console.log(currentActivity)
+function removeActiveBtnState() {
+  var categories = ['study', 'meditate', 'exercise'];
+  for (var i = 0; i < categories.length; i++) {
+    document.getElementById(`${categories[i]}-graphic`).src = `./assets/${categories[i]}.svg`
   }
- }
+}
+
+function startActivity() {
+  var catValue = document.querySelector('.category-btns').elements['user-choice'].value;
+  var goal = document.querySelector('#goal').value;
+  var min = document.querySelector('#min').value;
+  var sec = document.querySelector('#sec').value;
+
+  if (goal === "") {triggerAlert("goal")};
+  if (min === "") {triggerAlert("time")};
+  if (sec === "") {triggerAlert("time")};
+
+  currentActivity = new Activity (catValue, goal, min, sec);
+}
+
+function triggerAlert(alertNeeded) {
+  if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
+  // The code below is not working and I don't know why
+  //
+  // if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+}

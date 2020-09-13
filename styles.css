@@ -18,6 +18,10 @@ main {
   height: 100vh;
 }
 
+.hidden {
+  display: none !important;
+}
+
  .category-btns {
   display: flex;
   justify-content: space-between;
@@ -37,11 +41,7 @@ main {
   width: 50vw
 }
 
- /* TO-DO Potential area for refactoring */
-
- /* ------- Buttons -------- */
 .mini-img {
-  width: 40px;
   height: 25px;
 }
 
@@ -63,10 +63,6 @@ main {
   border-color: #B3FD78;
 }
 
-/* #study-graphic {
-  background-image: url(./assets/study.svg)
-
-} */
 .category-btns input.meditate[type='radio']:checked + label.meditate {
   color: #C278FD;
   border-color: #C278FD;
@@ -90,14 +86,12 @@ body {
   margin: 0;
 }
 
-.hidden {
-  display: none
-}
-
-.goal {
+#goal {
   border: none;
   border-bottom: solid #FFF 1px;
   background: transparent;
+  color: #FFF;
+  margin-top: 10px;
 }
 
 .activity-goal {
@@ -107,20 +101,33 @@ body {
   padding-bottom: 60px;
 }
 
+.alert {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert-msg {
+  color: #EFB7EC !important;
+  margin-top: 10px;
+  height: 16px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+
 .duration{
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 50px;
 }
 
 .minutes {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
 .seconds {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -137,6 +144,7 @@ body {
   margin: 0;
   height: 2em;
   width: 12em;
+  margin-top: 35px;
 }
 
 .time-input {
@@ -145,6 +153,8 @@ body {
   background: transparent;
   width: 20em;
   outline: none;
+  color: #FFF;
+  margin-top: 10px;
 }
 
 header {
@@ -157,7 +167,7 @@ header {
 
 .page-header {
   display: inline-flex;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .section-title {
@@ -182,6 +192,5 @@ header {
   color: #CBC9CF;
   text-align: center;
   padding: 10px 20px 0px 20px;
-  /* flex-shrink: 3 */
   min-width: 335px;
 }
