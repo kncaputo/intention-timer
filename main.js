@@ -14,13 +14,13 @@ inputBox.addEventListener("keydown", function startActivity(event){
 })
 
 categoryBtns.addEventListener('click', function(event) {
-  if (event.target.className === 'study') {activateBtn('study');}
-  if (event.target.className === 'meditate') {activateBtn('meditate');}
-  if (event.target.className === 'exercise') {activateBtn('exercise');}
+  if (event.target.id.includes('study')) {activateBtn('study');}
+  if (event.target.id.includes('meditate')) {activateBtn('meditate');}
+  if (event.target.id.includes('exercise')) {activateBtn('exercise');}
 })
 
 function activateBtn(category) {
-  removeActiveBtnState(category);
+  removeActiveBtnState();
   var imgId = `${category}-graphic`;
   document.getElementById(imgId).src = `./assets/${category}-active.svg`
 }
@@ -37,13 +37,17 @@ function startActivity() {
   var goal = document.querySelector('#goal').value;
   var min = document.querySelector('#min').value;
   var sec = document.querySelector('#sec').value;
+  alert(goal, min, sec);
+  currentActivity = new Activity (catValue, goal, min, sec);
+}
 
+function alert(goal, min, sec){
+  
   if (goal === "") {triggerAlert("goal")};
   if (min === "") {triggerAlert("time")};
   if (sec === "") {triggerAlert("time")};
-
-  currentActivity = new Activity (catValue, goal, min, sec);
 }
+
 
 function triggerAlert(alertNeeded) {
   if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
