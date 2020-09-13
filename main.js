@@ -37,19 +37,27 @@ function startActivity() {
   var goal = document.querySelector('#goal').value;
   var min = document.querySelector('#min').value;
   var sec = document.querySelector('#sec').value;
-  
+
   validateInput(goal, min, sec);
 
   currentActivity = new Activity (catValue, goal, min, sec);
+    hideForm()
 }
 
 function validateInput(goal, min, sec){
   if (!goal) {triggerAlert("goal")};
   if (!min || !sec) {triggerAlert("time")};
-} 
+}
 
 
 function triggerAlert(alertNeeded) {
   if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
   if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+}
+
+function hideForm() {
+  var goalForm = document.querySelector(".main-panel");
+  var timerView = document.querySelector(".timer-view");
+  goalForm.classList.toggle("hidden");
+  timerView.classList.toggle("hidden");
 }

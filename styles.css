@@ -1,4 +1,3 @@
-
 /* Main background: #2B2733
 Text on main background: #CBC9CF
 Header, cards: #46424D
@@ -22,13 +21,13 @@ main {
   display: none !important;
 }
 
- .category-btns {
+.category-btns {
   display: flex;
   justify-content: space-between;
   margin-right: 10px;
 }
 
-.main-form {
+.main-form, .timer-box {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -58,23 +57,23 @@ main {
   text-align: center;
 }
 
-.category-btns input.study[type='radio']:checked + label.study {
+.category-btns input.study[type='radio']:checked+label.study {
   color: #B3FD78;
   border-color: #B3FD78;
 }
 
-.category-btns input.meditate[type='radio']:checked + label.meditate {
+.category-btns input.meditate[type='radio']:checked+label.meditate {
   color: #C278FD;
   border-color: #C278FD;
 }
 
-.category-btns input.exercise[type='radio']:checked + label.exercise {
+.category-btns input.exercise[type='radio']:checked+label.exercise {
   color: #FD8078;
   border-color: #FD8078;
 }
 
 .main-panel p {
-    color:white
+  color: white
 }
 
 .main-panel label {
@@ -114,8 +113,7 @@ body {
   margin-right: 5px;
 }
 
-
-.duration{
+.duration {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -158,7 +156,8 @@ body {
 }
 
 header {
-  background-color:#46424D;
+  font-weight: 300;
+  background-color: #46424D;
   color: #FFF;
   display: flex;
   justify-content: center;
@@ -171,10 +170,16 @@ header {
 }
 
 .section-title {
-  color:#CBC9CF;
+  color: #fff;
   margin: 0;
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.section-title h3 {
+  margin-left: 0px;
+  color: #fff;
+  font-weight: 300;
 }
 
 .history-panel {
@@ -193,4 +198,31 @@ header {
   text-align: center;
   padding: 10px 20px 0px 20px;
   min-width: 335px;
+}
+
+.timer-view h2 {
+  color: #CBC9CF;
+}
+
+.timer-btn {
+  height: 200px;
+  width: 200px;
+  border: solid 4px #B3FD78;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  font-size: x-large;
+  padding: 10 0 30 0;
+  margin: 10px 0px 30px 0px;
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-box p {
+  color: #fff;
+  font-size: xx-large;
 }
