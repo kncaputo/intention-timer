@@ -176,8 +176,9 @@ header {
   margin-left: 20px;
 }
 
-.section-title h3 {
+.goal-phrase {
   margin-left: 0px;
+  margin-bottom: 5px;
   color: #fff;
   font-weight: 300;
 }
@@ -225,4 +226,5 @@ header {
 .timer-box p {
   color: #fff;
   font-size: xx-large;
+  margin-top: 0px;
 }
