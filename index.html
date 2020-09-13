@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel= "stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <header>
-      <h2 class="page-header">Intention Timer</h2>
-    </header>
-    <main>
-        <section class="main-panel">
-            <h2 class="section-title">New Activity</h2>
-            <section class="main-form">
-              <p>Select a category:</p>
-              <section class="box">
-                <form class="category-btns button-wrap"id="user-choice">
-                  <div class="study-btn">
-                    <input type="radio" id="study" name="user-choice" value="study" class="hidden study">
-                    <label for="study" class="study">
-                      <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
-                      <!-- <img src="./assets/study-active.svg" class="mini-img hidden" id="active-study" alt=""> -->
-                      Study
-                    </label>
-                  </div>
-                  <div>
-                    <input type="radio" id="meditate" name="user-choice" value="meditate" class="hidden meditate">
-                    <label for="meditate" class="meditate">
-                      <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
-                      <!-- <img src="./assets/meditate-active.svg" class="mini-img hidden" id="active-meditate" alt=""> -->
-                      Meditate
-                    </label>
-                  </div>
-                  <div>
-                    <input type="radio" id="exercise" name="user-choice" value="study" class="hidden exercise">
-                    <label for="exercise" class="exercise">
-                      <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
-                      <!-- <img src="./assets/exercise-active.svg" class="mini-img hidden" id="active-exercise" alt=""> -->
-                      Exercise
-                    </label>
-                  </div>
-                </form>
-                <form name="goal-form" class="activity-goal" id="goal-form">
-                  <label>What would you like to accomplish during this time?</label>
-                  <input name="goal" id="goal">
-                  <div class="alert need-goal hidden">
-                    <img src="./assets/warning.svg" class="alert-msg">
-                    <p class="alert-msg">A goal is required.</p>
-                  </div>
-                </form>
-                <section class="duration">
-                  <form class="minutes">
-                    <label>Minutes</label>
-                    <input type='text' class="time-input" id="min">
-                  </form>
-                  <form class="seconds">
-                    <label>Seconds</label>
-                    <input class="time-input" id="sec">
-                  </form>
-                </section>
-                <div class="alert need-duration hidden">
-                  <img src="./assets/warning.svg" class="alert-msg">
-                  <p class="alert-msg">A duration is required.</p>
-                </div>
-                <article class="start-container">
-                  <button class="start-activity-btn">START ACTIVITY</button>
-                </article>
-              </section>
-            </section>
-        </section>
-        <section class="timer-view hidden">
-          <h2>Current Activity</h2>
-          <article>
-          <h3 class="section-title">activity label goes here</h3>
-          <p class="timer">Timer</p>
-          <button class="">START</button>
+  <header>
+    <h2 class="page-header">Intention Timer</h2>
+  </header>
+  <main>
+    <section class="main-panel">
+      <h2 class="section-title">New Activity</h2>
+      <section class="main-form">
+        <p>Select a category:</p>
+        <section class="box">
+          <form class="category-btns button-wrap" id="user-choice">
+            <div class="study-btn">
+              <input type="radio" id="study" name="user-choice" value="study" class="hidden study">
+              <label for="study" class="study">
+                <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
+                Study
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="meditate" name="user-choice" value="meditate" class="hidden meditate">
+              <label for="meditate" class="meditate">
+                <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
+                Meditate
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="exercise" name="user-choice" value="study" class="hidden exercise">
+              <label for="exercise" class="exercise">
+                <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
+                Exercise
+              </label>
+            </div>
+          </form>
+          <form name="goal-form" class="activity-goal" id="goal-form">
+            <label>What would you like to accomplish during this time?</label>
+            <input name="goal" id="goal">
+            <div class="alert need-goal hidden">
+              <img src="./assets/warning.svg" class="alert-msg">
+              <p class="alert-msg">A goal is required.</p>
+            </div>
+          </form>
+          <section class="duration">
+            <form class="minutes">
+              <label>Minutes</label>
+              <input type='text' class="time-input" id="min">
+            </form>
+            <form class="seconds">
+              <label>Seconds</label>
+              <input class="time-input" id="sec">
+            </form>
+          </section>
+          <div class="alert need-duration hidden">
+            <img src="./assets/warning.svg" class="alert-msg">
+            <p class="alert-msg">A duration is required.</p>
+          </div>
+          <article class="start-container">
+            <button class="start-activity-btn">START ACTIVITY</button>
           </article>
         </section>
-        <section class="history-panel">
-          <h2 class="section-title">Past Activities</h2>
-          <p class="default-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
-        </section>
-    </main>
+      </section>
+    </section>
+    <section class="timer-view hidden">
+      <h2 class="section-title">Current Activity</h2>
+      <article class="timer-box">
+        <h3 class="goal-phrase">Phrase</h3>
+        <p class="goal-duration">minute:seconds</p>
+        <button class="timer-btn">START</button>
+      </article>
+    </section>
+    <section class="history-panel">
+      <h2 class="section-title">Past Activities</h2>
+      <p class="default-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+    </section>
+  </main>
 </body>
 <script src="activity.js"></script>
 <script src="main.js"></script>
+
 </html>

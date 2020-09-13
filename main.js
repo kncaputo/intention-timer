@@ -5,18 +5,24 @@ var categoryBtns = document.querySelector('.category-btns');
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
-
-inputBox.addEventListener("keydown", function startActivity(event){
+//TO-Do: Refactor HERE
+inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
-    if (invalidChars.includes(event.key)) {
+  if (invalidChars.includes(event.key)) {
     event.preventDefault();
   }
 })
 
 categoryBtns.addEventListener('click', function(event) {
-  if (event.target.id.includes('study')) {activateBtn('study');}
-  if (event.target.id.includes('meditate')) {activateBtn('meditate');}
-  if (event.target.id.includes('exercise')) {activateBtn('exercise');}
+  if (event.target.id.includes('study')) {
+    activateBtn('study');
+  }
+  if (event.target.id.includes('meditate')) {
+    activateBtn('meditate');
+  }
+  if (event.target.id.includes('exercise')) {
+    activateBtn('exercise');
+  }
 })
 
 function activateBtn(category) {
@@ -37,19 +43,56 @@ function startActivity() {
   var goal = document.querySelector('#goal').value;
   var min = document.querySelector('#min').value;
   var sec = document.querySelector('#sec').value;
-  
-  validateInput(goal, min, sec);
 
-  currentActivity = new Activity (catValue, goal, min, sec);
+  validateInput(goal, min, sec);
+  min = parseInt(min)
+  sec = parseInt(sec)
+  currentActivity = new Activity(catValue, goal, min, sec);
+  switchView()
 }
 
-function validateInput(goal, min, sec){
-  if (!goal) {triggerAlert("goal")};
-  if (!min || !sec) {triggerAlert("time")};
-} 
+function startTimer() {
+  var timerBtn = document.querySelector(".timer-btn");
+}
+
+function validateInput(goal, min, sec) {
+  if (!goal) {
+    triggerAlert("goal")
+  };
+  if (!min || !sec) {
+    triggerAlert("time")
+  };
+}
 
 
 function triggerAlert(alertNeeded) {
-  if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
-  if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
+  if (alertNeeded === "goal") {
+    document.querySelector('.need-goal').classList.toggle('hidden');
+  }
+  if (alertNeeded === "time") {
+    document.querySelector('.need-duration').classList.toggle('hidden');
+  }
+}
+
+function switchView() {
+  var goalForm = document.querySelector(".main-panel");
+  var timerView = document.querySelector(".timer-view");
+  goalForm.classList.toggle("hidden");
+  timerView.classList.toggle("hidden");
+  formatTime();
+}
+
+function displayInput(time) {
+  document.querySelector(".goal-phrase").innerText = `${currentActivity.description}`;
+  document.querySelector(".goal-duration").innerText = `${time}`;
+}
+
+function formatTime() {
+  if (currentActivity.seconds < 10) {
+    var seconds = `0${currentActivity.seconds}`;
+  }
+  if (currentActivity.minutes < 10) {
+    var minutes = `0${currentActivity.minutes}`;
+  }
+  displayInput(`${minutes}:${seconds}`);
 }
