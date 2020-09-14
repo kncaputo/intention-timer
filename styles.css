@@ -209,13 +209,25 @@ header {
 .timer-btn {
   height: 200px;
   width: 200px;
-  border: solid 4px #B3FD78;
+  border: solid 4px;
   border-radius: 50%;
   background-color: transparent;
   color: #fff;
   font-size: x-large;
   padding: 10 0 30 0;
   margin: 10px 0px 30px 0px;
+}
+
+.study-ring {
+  border: solid 4px #B3FD78;
+}
+
+.meditate-ring {
+  border: solid 4px #C278FD;
+}
+
+.exercise-ring {
+  border: solid 4px #FD8078
 }
 
 .timer-box {
