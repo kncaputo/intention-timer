@@ -52,10 +52,13 @@ function startActivity() {
 }
 
 function validateInput(catValue, goal, min, sec) {
-  if (!goal) {triggerAlert("goal");}
-  else if (!min || !sec) {triggerAlert("time");}
-  else if (parseInt(min) > 59 || parseInt(sec) > 59) {triggerAlert("tooLarge");}
-  else {
+  if (!goal) {
+    triggerAlert("goal");
+  } else if (!min || !sec) {
+    triggerAlert("time");
+  } else if (parseInt(min) > 59 || parseInt(sec) > 59) {
+    triggerAlert("tooLarge");
+  } else {
     return true;
   }
 }
@@ -66,14 +69,30 @@ function createInstance(catValue, goal, min, sec) {
 }
 
 function triggerAlert(alertNeeded) {
-  if (alertNeeded === "goal") {document.querySelector('.need-goal').classList.toggle('hidden');}
-  if (alertNeeded === "time") {document.querySelector('.need-duration').classList.toggle('hidden');}
-  if (alertNeeded === "tooLarge") {document.querySelector('.limit-duration').classList.toggle('hidden');}
+  if (alertNeeded === "goal") {
+    document.querySelector('.need-goal').classList.toggle('hidden');
+  }
+  if (alertNeeded === "time") {
+    document.querySelector('.need-duration').classList.toggle('hidden');
+  }
+  if (alertNeeded === "tooLarge") {
+    document.querySelector('.limit-duration').classList.toggle('hidden');
+  }
 }
 
 function switchView() {
   var goalForm = document.querySelector(".main-panel");
   var timerView = document.querySelector(".timer-view");
+  debugger
+  if (currentActivity.category === "study") {
+    document.querySelector(".timer-btn").classList.add("study-ring")
+  }
+  if (currentActivity.category === "meditate") {
+    document.querySelector(".timer-btn").classList.add("meditate-ring")
+  }
+  if (currentActivity.category === "exercise") {
+    document.querySelector(".timer-btn").classList.add("exercise-ring")
+  }
   goalForm.classList.toggle("hidden");
   timerView.classList.toggle("hidden");
   formatTime();
@@ -85,11 +104,13 @@ function displayInput(time) {
 }
 
 function formatTime() {
+  var seconds = currentActivity.seconds;
+  var minutes = currentActivity.minutes;
   if (currentActivity.seconds < 10) {
-    var seconds = `0${currentActivity.seconds}`;
+    seconds = `0${currentActivity.seconds}`;
   }
   if (currentActivity.minutes < 10) {
-    var minutes = `0${currentActivity.minutes}`;
+    minutes = `0${currentActivity.minutes}`;
   }
   displayInput(`${minutes}:${seconds}`);
 }
@@ -100,11 +121,20 @@ function formatRemainingTime(time) {
   var seconds = currentActivity.seconds;
   var minutes = currentActivity.minutes;
 
-  if (currentActivity.seconds < 10 && currentActivity.seconds > 0) {seconds = `0${currentActivity.seconds}`;}
-  if (currentActivity.seconds < 1) {seconds = '00';}
-  if (currentActivity.minutes < 10 && currentActivity.minutes > 0) {minutes = `0${currentActivity.minutes}`;}
-  if (currentActivity.minutes === 0) {minutes = '00'}
+  if (currentActivity.seconds < 10 && currentActivity.seconds > 0) {
+    seconds = `0${currentActivity.seconds}`;
+  }
+  if (currentActivity.seconds < 1) {
+    seconds = '00';
+  }
+  if (currentActivity.minutes < 10 && currentActivity.minutes > 0) {
+    minutes = `0${currentActivity.minutes}`;
+  }
+  if (currentActivity.minutes === 0) {
+    minutes = '00'
+  }
   displayInput(`${minutes}:${seconds}`);
+  // if (currentSeconds === 0) {stopTimer();}
 }
 
 function beginCountdown() {
