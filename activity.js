@@ -9,7 +9,9 @@ class Activity {
   }
 
   startTimer() {
-    
+    var currentSeconds = (this.minutes * 60) + this.seconds;
+    currentSeconds--;
+    formatRemainingTime(currentSeconds);
   }
 
   markComplete() {

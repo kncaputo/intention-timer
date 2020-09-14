@@ -6,7 +6,7 @@ var timerBtn = document.querySelector(".timer-btn");
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
-timerBtn.addEventListener('click', startTimer);
+timerBtn.addEventListener('click', beginCountdown);
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
@@ -54,8 +54,10 @@ function startActivity() {
 function validateInput(catValue, goal, min, sec) {
   if (!goal) {triggerAlert("goal");}
   else if (!min || !sec) {triggerAlert("time");}
-  else if (min > 59 || sec > 59) {triggerAlert("tooLarge");}
-  return true;
+  else if (parseInt(min) > 59 || parseInt(sec) > 59) {triggerAlert("tooLarge");}
+  else {
+    return true;
+  }
 }
 
 function createInstance(catValue, goal, min, sec) {
@@ -91,4 +93,25 @@ function formatTime() {
   }
   displayInput(`${minutes}:${seconds}`);
 }
-functi
+
+function formatRemainingTime(time) {
+  currentActivity.minutes = Math.floor(time / 60);
+  currentActivity.seconds = time % 60;
+  var seconds = currentActivity.seconds;
+  var minutes = currentActivity.minutes;
+
+  if (currentActivity.seconds < 10 && currentActivity.seconds > 0) {seconds = `0${currentActivity.seconds}`;}
+  if (currentActivity.seconds < 1) {seconds = '00';}
+  if (currentActivity.minutes < 10 && currentActivity.minutes > 0) {minutes = `0${currentActivity.minutes}`;}
+  if (currentActivity.minutes === 0) {minutes = '00'}
+  displayInput(`${minutes}:${seconds}`);
+}
+
+function beginCountdown() {
+  formatTime();
+  setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  currentActivity.startTimer();
+}
