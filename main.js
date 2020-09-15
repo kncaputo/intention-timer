@@ -2,13 +2,16 @@ var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
 var timerBtn = document.querySelector(".timer-btn");
+var logBtn = document.querySelector(".log-btn");
 
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
 timerBtn.addEventListener('click', function() {
-  currentActivity.startTimer();
+  updateTimer(currentActivity.startTimer());
 });
+logBtn.addEventListener('click', createCard);
+
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
@@ -85,76 +88,83 @@ function triggerAlert(alertNeeded) {
 function switchView() {
   var goalForm = document.querySelector(".main-panel");
   var timerView = document.querySelector(".timer-view");
-  if (currentActivity.category === "study") {
+  if (currentActivity.category === "Study") {
     document.querySelector(".timer-btn").classList.add("study-ring")
   }
-  if (currentActivity.category === "meditate") {
+  if (currentActivity.category === "Meditate") {
     document.querySelector(".timer-btn").classList.add("meditate-ring")
   }
-  if (currentActivity.category === "exercise") {
+  if (currentActivity.category === "Exercise") {
     document.querySelector(".timer-btn").classList.add("exercise-ring")
   }
   goalForm.classList.toggle("hidden");
   timerView.classList.toggle("hidden");
-  formatTime();
+  var currentSeconds = (currentActivity.minutes * 60) + currentActivity.seconds;
+  formatRemainingTime(currentSeconds);
 }
 
 function displayInput(time) {
   document.querySelector(".goal-phrase").innerText = `${currentActivity.description}`;
   document.querySelector(".goal-duration").innerText = `${time}`;
 }
-
-function formatTime() {
-  var seconds = currentActivity.seconds;
-  var minutes = currentActivity.minutes;
-  if (currentActivity.seconds < 10) {
-    seconds = `0${currentActivity.seconds}`;
-  }
-  if (currentActivity.minutes < 10) {
-    minutes = `0${currentActivity.minutes}`;
-  }
-  displayInput(`${minutes}:${seconds}`);
-}
+//
+// function formatTime() {
+//   var seconds = currentActivity.seconds;
+//   var minutes = currentActivity.minutes;
+//   if (currentActivity.seconds < 10) {
+//     seconds = `0${currentActivity.seconds}`;
+//   }
+//   if (currentActivity.minutes < 10) {
+//     minutes = `0${currentActivity.minutes}`;
+//   }
+//   displayInput(`${minutes}:${seconds}`);
+// }
 
 function formatRemainingTime(time) {
-  currentActivity.minutes = Math.floor(time / 60);
-  currentActivity.seconds = time % 60;
-  var seconds = currentActivity.seconds;
-  var minutes = currentActivity.minutes;
+  var minutes = Math.floor(time / 60);
+  var seconds = time % 60;
 
-  if (currentActivity.seconds < 10 && currentActivity.seconds > 0) {
-    seconds = `0${currentActivity.seconds}`;
-  }
-  if (currentActivity.seconds < 1) {
-    seconds = '00';
-  }
-  if (currentActivity.minutes < 10 && currentActivity.minutes > 0) {
-    minutes = `0${currentActivity.minutes}`;
-  }
-  if (currentActivity.minutes === 0) {
-    minutes = '00'
-  }
+  if (seconds < 10 && seconds > 0) {seconds = `0${seconds}`;}
+  if (seconds < 1) {seconds = '00';}
+  if (minutes < 10 && minutes > 0) {minutes = `0${minutes}`;}
+  if (minutes === 0) {minutes = '00'}
   displayInput(`${minutes}:${seconds}`);
-  // if (currentSeconds === 0) {stopTimer();}
 }
 
-// function beginCountdown() {
-//
-//
-// }
 
-function updateTimer() {
+function updateTimer(currentSeconds) {
   currentActivity.startTimer();
+  formatRemainingTime(currentSeconds);
+
+  var interval = setInterval(function () {
+    currentSeconds--;
+    formatRemainingTime(currentSeconds);
+    if (!currentSeconds) {
+      clearInterval(interval);
+      triggerCompleteView();
+      currentActivity.markComplete();
+      if (currentActivity.completed === true) {
+        alert("You've completed the activity!")
+      }
+    }
+  }, 1000);
 }
 
-// function giveTimerValues(min, sec) {
-//   var interval;
-//   var totalSeconds = min*60 + sec
-//   interval = setInterval(function() {
-//     totalSeconds--;
-//     displayTime(totalSeconds)
-//     if(!totalSeconds){
-//       clearInterval(interval);
-//     }
-//   },1000)
-// }
+function triggerCompleteView() {
+  timerBtn.innerText = "COMPLETE!";
+  document.querySelector('.log-btn').classList.toggle('hidden')
+}
+
+function createCard() {
+  document.querySelector('.default-message').classList.add("hidden");
+  var htmlBlock = `
+        <article class="past-activities">
+          <box class='activity-card'>
+            <p id='card-category'>${currentActivity.category}</p>
+            <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+            <p id='card-task'>${currentActivity.description}</p>
+          </box>
+          <div></div>
+        </article>`;
+document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
+}

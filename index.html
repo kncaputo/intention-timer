@@ -19,21 +19,21 @@
         <section class="box">
           <form class="category-btns button-wrap" id="user-choice">
             <div class="study-btn">
-              <input type="radio" id="study" name="user-choice" value="study" class="hidden study">
+              <input type="radio" id="study" name="user-choice" value="Study" class="hidden study">
               <label for="study" class="study" id="study-label">
                 <img src="./assets/study.svg" class="mini-img" id="study-graphic" alt="">
                 Study
               </label>
             </div>
             <div>
-              <input type="radio" id="meditate" name="user-choice" value="meditate" class="hidden meditate">
+              <input type="radio" id="meditate" name="user-choice" value="Meditate" class="hidden meditate">
               <label for="meditate" class="meditate" id="meditate-label">
                 <img src="./assets/meditate.svg" class="mini-img" id="meditate-graphic">
                 Meditate
               </label>
             </div>
             <div>
-              <input type="radio" id="exercise" name="user-choice" value="study" class="hidden exercise">
+              <input type="radio" id="exercise" name="user-choice" value="Study" class="hidden exercise">
               <label for="exercise" class="exercise" id="exercise-label">
                 <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
                 Exercise
@@ -69,7 +69,7 @@
             <p class="alert-msg">Limit duration to 59 minutes and 59 seconds.</p>
           </div>
           <article class="start-container">
-            <button class="start-activity-btn">START ACTIVITY</button>
+            <button class="start-activity-btn btn">START ACTIVITY</button>
           </article>
         </section>
       </section>
@@ -80,11 +80,14 @@
         <h3 class="goal-phrase">Phrase</h3>
         <p class="goal-duration">00:00</p>
         <button class="timer-btn">START</button>
+        <button class="log-btn hidden">Log Activity</button>
       </article>
     </section>
     <section class="history-panel">
       <h2 class="section-title">Past Activities</h2>
-      <p class="default-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      <div class="card-box">
+        <p class="default-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      </div>
     </section>
   </main>
 </body>
