@@ -2,6 +2,7 @@ var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
 var timerBtn = document.querySelector(".timer-btn");
+var logBtn = document.querySelector(".log-btn");
 
 var currentActivity;
 
@@ -9,6 +10,8 @@ startActivityBtn.addEventListener('click', startActivity);
 timerBtn.addEventListener('click', function() {
   updateTimer(currentActivity.startTimer());
 });
+logBtn.addEventListener('click', createCard);
+
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
@@ -121,18 +124,10 @@ function formatRemainingTime(time) {
   var minutes = Math.floor(time / 60);
   var seconds = time % 60;
 
-  if (seconds < 10 && seconds > 0) {
-    seconds = `0${seconds}`;
-  }
-  if (seconds < 1) {
-    seconds = '00';
-  }
-  if (minutes < 10 && minutes > 0) {
-    minutes = `0${minutes}`;
-  }
-  if (minutes === 0) {
-    minutes = '00'
-  }
+  if (seconds < 10 && seconds > 0) {seconds = `0${seconds}`;}
+  if (seconds < 1) {seconds = '00';}
+  if (minutes < 10 && minutes > 0) {minutes = `0${minutes}`;}
+  if (minutes === 0) {minutes = '00'}
   displayInput(`${minutes}:${seconds}`);
 }
 
@@ -144,9 +139,30 @@ function updateTimer(currentSeconds) {
   var interval = setInterval(function () {
     currentSeconds--;
     formatRemainingTime(currentSeconds);
-    if (currentSeconds === -1) {
+    if (!currentSeconds) {
       clearInterval(interval);
+      triggerCompleteView();
       currentActivity.markComplete();
+      if (currentActivity.completed === true) {
+        alert("You've completed the activity!")
+      }
     }
   }, 1000);
+}
+
+function triggerCompleteView() {
+  timerBtn.innerText = "COMPLETE!";
+  document.querySelector('.log-btn').classList.toggle('hidden')
+}
+
+function createCard() {
+  document.querySelector('.default-message').classList.add("hidden");
+  var htmlBlock = `
+        <div class='activity-card'>
+          <p id='card-category'>${currentActivity.category}</p>
+          <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+          <p id='card-task'>${currentActivity.description}</p>
+          <div></div>
+        </div>`;
+document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
 }

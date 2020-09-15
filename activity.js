@@ -14,10 +14,12 @@ class Activity {
   }
 
   markComplete() {
-    alert("TIMER COMPLETE");
+    this.completed = true;
   }
 
   saveToStorage() {
-
+    var stringifiedAct = JSON.stringify(this);
+    var activityId = this.id;
+    localStorage.setItem(activityId, stringifiedAct);
   }
 }

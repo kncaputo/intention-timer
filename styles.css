@@ -136,7 +136,7 @@ body {
   padding-bottom: 20px;
 }
 
-.start-activity-btn {
+.start-activity-btn{
   border-style: none;
   border-radius: 4px;
   color: #46424D;
@@ -241,4 +241,51 @@ header {
   color: #fff;
   font-size: xx-large;
   margin-top: 0px;
+}
+
+.log-btn {
+  border-style: none;
+  border-radius: 4px;
+  color: #46424D;
+  margin: 0;
+  height: 2em;
+  width: 12em;
+  margin-top: 35px;
+}
+
+.past-Act{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 3px;
+  background-color: #46424D;
+  margin-left: 20px;
+  height: 90px;
+  width: 350px;
+}
+.activity-card div{
+  height: 25px;
+  width: 4px;
+  background-color: #B3FD78;
+  right: 0;
+  margin-left: 340px;
+  margin-right: 0;
+  border-radius: 5px;
+}
+.activity-card{
+  height: 80px;
+  width: 330px;
+  margin: 10px;
+}
+#card-category{
+  margin: 0;
+  color: #FFF;
+}
+#card-time{
+  margin: 0;
+  color: #FFF;
+}
+#card-task{
+  margin: 0;
+  color: #FFF;
 }
