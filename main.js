@@ -7,7 +7,7 @@ var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
 timerBtn.addEventListener('click', function() {
-  currentActivity.startTimer();
+  updateTimer(currentActivity.startTimer());
 });
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
@@ -96,65 +96,57 @@ function switchView() {
   }
   goalForm.classList.toggle("hidden");
   timerView.classList.toggle("hidden");
-  formatTime();
+  var currentSeconds = (currentActivity.minutes * 60) + currentActivity.seconds;
+  formatRemainingTime(currentSeconds);
 }
 
 function displayInput(time) {
   document.querySelector(".goal-phrase").innerText = `${currentActivity.description}`;
   document.querySelector(".goal-duration").innerText = `${time}`;
 }
-
-function formatTime() {
-  var seconds = currentActivity.seconds;
-  var minutes = currentActivity.minutes;
-  if (currentActivity.seconds < 10) {
-    seconds = `0${currentActivity.seconds}`;
-  }
-  if (currentActivity.minutes < 10) {
-    minutes = `0${currentActivity.minutes}`;
-  }
-  displayInput(`${minutes}:${seconds}`);
-}
+//
+// function formatTime() {
+//   var seconds = currentActivity.seconds;
+//   var minutes = currentActivity.minutes;
+//   if (currentActivity.seconds < 10) {
+//     seconds = `0${currentActivity.seconds}`;
+//   }
+//   if (currentActivity.minutes < 10) {
+//     minutes = `0${currentActivity.minutes}`;
+//   }
+//   displayInput(`${minutes}:${seconds}`);
+// }
 
 function formatRemainingTime(time) {
-  currentActivity.minutes = Math.floor(time / 60);
-  currentActivity.seconds = time % 60;
-  var seconds = currentActivity.seconds;
-  var minutes = currentActivity.minutes;
+  var minutes = Math.floor(time / 60);
+  var seconds = time % 60;
 
-  if (currentActivity.seconds < 10 && currentActivity.seconds > 0) {
-    seconds = `0${currentActivity.seconds}`;
+  if (seconds < 10 && seconds > 0) {
+    seconds = `0${seconds}`;
   }
-  if (currentActivity.seconds < 1) {
+  if (seconds < 1) {
     seconds = '00';
   }
-  if (currentActivity.minutes < 10 && currentActivity.minutes > 0) {
-    minutes = `0${currentActivity.minutes}`;
+  if (minutes < 10 && minutes > 0) {
+    minutes = `0${minutes}`;
   }
-  if (currentActivity.minutes === 0) {
+  if (minutes === 0) {
     minutes = '00'
   }
   displayInput(`${minutes}:${seconds}`);
-  // if (currentSeconds === 0) {stopTimer();}
 }
 
-// function beginCountdown() {
-//
-//
-// }
 
-function updateTimer() {
+function updateTimer(currentSeconds) {
   currentActivity.startTimer();
-}
+  formatRemainingTime(currentSeconds);
 
-// function giveTimerValues(min, sec) {
-//   var interval;
-//   var totalSeconds = min*60 + sec
-//   interval = setInterval(function() {
-//     totalSeconds--;
-//     displayTime(totalSeconds)
-//     if(!totalSeconds){
-//       clearInterval(interval);
-//     }
-//   },1000)
-// }
+  var interval = setInterval(function () {
+    currentSeconds--;
+    formatRemainingTime(currentSeconds);
+    if (currentSeconds === -1) {
+      clearInterval(interval);
+      currentActivity.markComplete();
+    }
+  }, 1000);
+}

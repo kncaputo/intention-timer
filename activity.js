@@ -9,21 +9,12 @@ class Activity {
   }
 
   startTimer() {
-    formatTime();
     var currentSeconds = (this.minutes * 60) + this.seconds;
-    var interval = setInterval(function () {
-      currentSeconds--;
-      formatRemainingTime(currentSeconds);
-      if (!currentSeconds) {
-        clearInterval(interval);
-        alert("TIMER COMPLETE");
-        markComplete();
-      }
-    }, 1000);
+    return currentSeconds;
   }
 
   markComplete() {
-
+    alert("TIMER COMPLETE");
   }
 
   saveToStorage() {
