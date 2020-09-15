@@ -9,9 +9,17 @@ class Activity {
   }
 
   startTimer() {
+    formatTime();
     var currentSeconds = (this.minutes * 60) + this.seconds;
-    currentSeconds--;
-    formatRemainingTime(currentSeconds);
+    var interval = setInterval(function () {
+      currentSeconds--;
+      formatRemainingTime(currentSeconds);
+      if (!currentSeconds) {
+        clearInterval(interval);
+        alert("TIMER COMPLETE");
+        markComplete();
+      }
+    }, 1000);
   }
 
   markComplete() {
