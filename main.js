@@ -88,13 +88,13 @@ function triggerAlert(alertNeeded) {
 function switchView() {
   var goalForm = document.querySelector(".main-panel");
   var timerView = document.querySelector(".timer-view");
-  if (currentActivity.category === "study") {
+  if (currentActivity.category === "Study") {
     document.querySelector(".timer-btn").classList.add("study-ring")
   }
-  if (currentActivity.category === "meditate") {
+  if (currentActivity.category === "Meditate") {
     document.querySelector(".timer-btn").classList.add("meditate-ring")
   }
-  if (currentActivity.category === "exercise") {
+  if (currentActivity.category === "Exercise") {
     document.querySelector(".timer-btn").classList.add("exercise-ring")
   }
   goalForm.classList.toggle("hidden");
@@ -158,11 +158,13 @@ function triggerCompleteView() {
 function createCard() {
   document.querySelector('.default-message').classList.add("hidden");
   var htmlBlock = `
-        <div class='activity-card'>
-          <p id='card-category'>${currentActivity.category}</p>
-          <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
-          <p id='card-task'>${currentActivity.description}</p>
+        <article class="past-activities">
+          <box class='activity-card'>
+            <p id='card-category'>${currentActivity.category}</p>
+            <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+            <p id='card-task'>${currentActivity.description}</p>
+          </box>
           <div></div>
-        </div>`;
+        </article>`;
 document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
 }

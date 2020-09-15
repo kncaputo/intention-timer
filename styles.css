@@ -171,7 +171,7 @@ header {
 }
 
 .section-title {
-  color: #fff;
+  color: #CBC9CF;
   margin: 0;
   margin-top: 20px;
   margin-left: 20px;
@@ -193,6 +193,7 @@ header {
 
 .history-panel h2 {
   margin-left: 20px;
+  margin-bottom: 20px
 }
 
 .default-message {
@@ -253,7 +254,11 @@ header {
   margin-top: 35px;
 }
 
-.past-Act{
+.card-box {
+  margin: 20;
+}
+
+.past-activities{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -262,30 +267,37 @@ header {
   margin-left: 20px;
   height: 90px;
   width: 350px;
+  box-shadow: 5px 5px #26222D;
 }
-.activity-card div{
-  height: 25px;
+.past-activities div{
+  height: 28px;
   width: 4px;
   background-color: #B3FD78;
-  right: 0;
-  margin-left: 340px;
-  margin-right: 0;
+  margin-right: 5px;
+  margin-left: 0;
+  margin-bottom: 40px;
   border-radius: 5px;
 }
 .activity-card{
-  height: 80px;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
   width: 330px;
   margin: 10px;
 }
 #card-category{
   margin: 0;
   color: #FFF;
+  font-weight: bolder;
+  font-size: smaller;
 }
 #card-time{
   margin: 0;
   color: #FFF;
+  font-size: revert;
 }
 #card-task{
   margin: 0;
   color: #FFF;
+  margin-top: 10px;
 }
