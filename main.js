@@ -6,7 +6,9 @@ var timerBtn = document.querySelector(".timer-btn");
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
-timerBtn.addEventListener('click', beginCountdown);
+timerBtn.addEventListener('click', function() {
+  currentActivity.startTimer();
+});
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
@@ -83,7 +85,6 @@ function triggerAlert(alertNeeded) {
 function switchView() {
   var goalForm = document.querySelector(".main-panel");
   var timerView = document.querySelector(".timer-view");
-  debugger
   if (currentActivity.category === "study") {
     document.querySelector(".timer-btn").classList.add("study-ring")
   }
@@ -137,11 +138,23 @@ function formatRemainingTime(time) {
   // if (currentSeconds === 0) {stopTimer();}
 }
 
-function beginCountdown() {
-  formatTime();
-  setInterval(updateTimer, 1000);
-}
+// function beginCountdown() {
+//
+//
+// }
 
 function updateTimer() {
   currentActivity.startTimer();
 }
+
+// function giveTimerValues(min, sec) {
+//   var interval;
+//   var totalSeconds = min*60 + sec
+//   interval = setInterval(function() {
+//     totalSeconds--;
+//     displayTime(totalSeconds)
+//     if(!totalSeconds){
+//       clearInterval(interval);
+//     }
+//   },1000)
+// }

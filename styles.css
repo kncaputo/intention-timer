@@ -212,6 +212,7 @@ header {
   border: solid 4px;
   border-radius: 50%;
   background-color: transparent;
+  outline: none;
   color: #fff;
   font-size: x-large;
   padding: 10 0 30 0;
