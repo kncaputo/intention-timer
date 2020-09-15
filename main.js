@@ -1,8 +1,11 @@
+var goalForm = document.querySelector(".main-panel");
+var timerView = document.querySelector(".timer-view");
 var startActivityBtn = document.querySelector('.start-activity-btn')
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
 var timerBtn = document.querySelector(".timer-btn");
 var logBtn = document.querySelector(".log-btn");
+var newActivityBtn = document.querySelector(".new-activity-btn");
 
 var currentActivity;
 
@@ -11,6 +14,7 @@ timerBtn.addEventListener('click', function() {
   updateTimer(currentActivity.startTimer());
 });
 logBtn.addEventListener('click', createCard);
+// newActivityBtn.addEventListener('click', returnHome);
 
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
@@ -86,8 +90,6 @@ function triggerAlert(alertNeeded) {
 }
 
 function switchView() {
-  var goalForm = document.querySelector(".main-panel");
-  var timerView = document.querySelector(".timer-view");
   if (currentActivity.category === "Study") {
     document.querySelector(".timer-btn").classList.add("study-ring")
   }
@@ -164,7 +166,20 @@ function createCard() {
             <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
             <p id='card-task'>${currentActivity.description}</p>
           </box>
-          <div></div>
+          <div class="marker"></div>
         </article>`;
 document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
+  if (currentActivity.category === "Study") {document.querySelector(".marker").classList.add("study-card")}
+  if (currentActivity.category === "Meditate") {document.querySelector(".marker").classList.add("meditate-card")}
+  if (currentActivity.category === "Exercise") {document.querySelector(".marker").classList.add("exercise-card")}
 }
+
+function hideTimer() {
+ document.querySelector(".left-title").innerText = "Completed Activity";
+ document.querySelector(".inner-timer-elements").classList.add("hidden");
+ document.querySelector(".inner-new-activity").classList.remove("hidden");
+}
+// function returnHome() {
+//   goalForm.classList.toggle("hidden");
+//   completedView.classList.toggle("hidden");
+// }
