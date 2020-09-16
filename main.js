@@ -4,14 +4,16 @@ var completedView = document.querySelector(".inner-new-activity");
 var startActivityBtn = document.querySelector('.start-activity-btn');
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
-var timerBtn = document.querySelector(".timer-btn");
+var start = document.querySelector(".start");
+var complete = document.querySelector(".complete");
+
 var logBtn = document.querySelector(".log-btn");
 var newActivityBtn = document.querySelector(".new-activity-btn");
 
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
-timerBtn.addEventListener('click', function() {
+start.addEventListener('click', function() {
   updateTimer(currentActivity.startTimer());
 });
 logBtn.addEventListener('click', createCard);
@@ -142,7 +144,8 @@ function updateTimer(currentSeconds) {
 }
 
 function triggerCompleteView() {
-  timerBtn.innerText = "COMPLETE!";
+  start.classList.toggle('hidden');
+  complete.classList.toggle('hidden');
   document.querySelector('.log-btn').classList.toggle('hidden')
 }
 
@@ -185,4 +188,5 @@ function returnHome() {
   goalForm.classList.toggle("hidden");
   timerView.classList.toggle("hidden");
   removeActiveBtnState();
+  triggerCompleteView();
 }
