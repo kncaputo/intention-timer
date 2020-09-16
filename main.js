@@ -1,21 +1,27 @@
-var goalForm = document.querySelector(".main-panel");
-var timerView = document.querySelector(".timer-view");
-var completedView = document.querySelector(".inner-new-activity");
-var startActivityBtn = document.querySelector('.start-activity-btn');
-var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
-var timerBtn = document.querySelector(".timer-btn");
+var complete = document.querySelector(".complete");
+var completedView = document.querySelector(".inner-new-activity");
+var goalForm = document.querySelector(".main-panel");
+var inputBox = document.querySelector(".time-input");
 var logBtn = document.querySelector(".log-btn");
 var newActivityBtn = document.querySelector(".new-activity-btn");
+var start = document.querySelector(".start");
+var startActivityBtn = document.querySelector('.start-activity-btn');
+var timerView = document.querySelector(".timer-view");
 
 var currentActivity;
+var pastActivities = [];
 
 startActivityBtn.addEventListener('click', startActivity);
-timerBtn.addEventListener('click', function() {
+start.addEventListener('click', function() {
   updateTimer(currentActivity.startTimer());
 });
-logBtn.addEventListener('click', createCard);
- newActivityBtn.addEventListener('click', returnHome);
+logBtn.addEventListener('click', function() {
+  createCard();
+  hideTimer();
+});
+newActivityBtn.addEventListener('click', returnHome);
+window.onload = retrieveKeys();
 
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
@@ -134,6 +140,7 @@ function updateTimer(currentSeconds) {
       clearInterval(interval);
       triggerCompleteView();
       currentActivity.markComplete();
+      pastActivities.push(currentActivity.saveToStorage(currentActivity));
       if (currentActivity.completed === true) {
         alert("You've completed the activity!")
       }
@@ -142,12 +149,14 @@ function updateTimer(currentSeconds) {
 }
 
 function triggerCompleteView() {
-  timerBtn.innerText = "COMPLETE!";
+  start.classList.toggle('hidden');
+  complete.classList.toggle('hidden');
   document.querySelector('.log-btn').classList.toggle('hidden')
 }
 
 function createCard() {
   document.querySelector('.default-message').classList.add("hidden");
+
   var htmlBlock = `
         <article class="past-activities">
           <box class='activity-card'>
@@ -157,11 +166,10 @@ function createCard() {
           </box>
           <div class="marker"></div>
         </article>`;
-document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
+  document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
   if (currentActivity.category === "Study") {document.querySelector(".marker").classList.add("study-card")}
   if (currentActivity.category === "Meditate") {document.querySelector(".marker").classList.add("meditate-card")}
   if (currentActivity.category === "Exercise") {document.querySelector(".marker").classList.add("exercise-card")}
-  hideTimer();
 }
 
 function hideTimer() {
@@ -185,4 +193,21 @@ function returnHome() {
   goalForm.classList.toggle("hidden");
   timerView.classList.toggle("hidden");
   removeActiveBtnState();
+  triggerCompleteView();
+}
+
+function retrieveCards() {
+  for (var i = 0; i < pastActivities.length; i++) {
+    var retrievedPastAct = localStorage.getItem(pastActivities[i]);
+    currentActivity = JSON.parse(retrievedPastAct);
+    createCard();
+  }
+}
+function retrieveKeys() {
+  var ids = Object.keys(localStorage);
+
+  for (var i = 0; i < ids.length; i++) {
+    pastActivities.push(ids[i]);
+  }
+  retrieveCards();
 }

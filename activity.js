@@ -17,9 +17,10 @@ class Activity {
     this.completed = true;
   }
 
-  saveToStorage() {
-    var stringifiedAct = JSON.stringify(this);
+  saveToStorage(completedAct) {
+    var stringifiedAct = JSON.stringify(completedAct);
     var activityId = this.id;
     localStorage.setItem(activityId, stringifiedAct);
+    return activityId;
   }
 }
