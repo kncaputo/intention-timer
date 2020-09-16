@@ -1,6 +1,7 @@
 var goalForm = document.querySelector(".main-panel");
 var timerView = document.querySelector(".timer-view");
-var startActivityBtn = document.querySelector('.start-activity-btn')
+var completedView = document.querySelector(".inner-new-activity");
+var startActivityBtn = document.querySelector('.start-activity-btn');
 var inputBox = document.querySelector(".time-input");
 var categoryBtns = document.querySelector('.category-btns');
 var timerBtn = document.querySelector(".timer-btn");
@@ -14,7 +15,7 @@ timerBtn.addEventListener('click', function() {
   updateTimer(currentActivity.startTimer());
 });
 logBtn.addEventListener('click', createCard);
-// newActivityBtn.addEventListener('click', returnHome);
+ newActivityBtn.addEventListener('click', returnHome);
 
 //TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
@@ -99,8 +100,8 @@ function switchView() {
   if (currentActivity.category === "Exercise") {
     document.querySelector(".timer-btn").classList.add("exercise-ring")
   }
-  goalForm.classList.toggle("hidden");
-  timerView.classList.toggle("hidden");
+  goalForm.classList.add("hidden");
+  timerView.classList.remove("hidden");
   var currentSeconds = (currentActivity.minutes * 60) + currentActivity.seconds;
   formatRemainingTime(currentSeconds);
 }
@@ -109,18 +110,6 @@ function displayInput(time) {
   document.querySelector(".goal-phrase").innerText = `${currentActivity.description}`;
   document.querySelector(".goal-duration").innerText = `${time}`;
 }
-//
-// function formatTime() {
-//   var seconds = currentActivity.seconds;
-//   var minutes = currentActivity.minutes;
-//   if (currentActivity.seconds < 10) {
-//     seconds = `0${currentActivity.seconds}`;
-//   }
-//   if (currentActivity.minutes < 10) {
-//     minutes = `0${currentActivity.minutes}`;
-//   }
-//   displayInput(`${minutes}:${seconds}`);
-// }
 
 function formatRemainingTime(time) {
   var minutes = Math.floor(time / 60);
@@ -172,6 +161,7 @@ document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
   if (currentActivity.category === "Study") {document.querySelector(".marker").classList.add("study-card")}
   if (currentActivity.category === "Meditate") {document.querySelector(".marker").classList.add("meditate-card")}
   if (currentActivity.category === "Exercise") {document.querySelector(".marker").classList.add("exercise-card")}
+  hideTimer();
 }
 
 function hideTimer() {
@@ -179,7 +169,20 @@ function hideTimer() {
  document.querySelector(".inner-timer-elements").classList.add("hidden");
  document.querySelector(".inner-new-activity").classList.remove("hidden");
 }
-// function returnHome() {
-//   goalForm.classList.toggle("hidden");
-//   completedView.classList.toggle("hidden");
-// }
+
+function returnHome() {
+  var userId = document.querySelector("#user-choice");
+  var goalId = document.querySelector("#goal-form");
+  var minuteId = document.querySelector("#mins");
+  var secondsId = document.querySelector("#secs");
+  document.getElementById("user-choice").reset();
+  document.getElementById("goal-form").reset();
+  document.getElementById("mins").reset();
+  document.getElementById("secs").reset();
+  document.querySelector(".left-title").innerText = "Current Activity";
+  document.querySelector(".inner-timer-elements").classList.remove("hidden");
+  document.querySelector(".inner-new-activity").classList.add("hidden");
+  goalForm.classList.toggle("hidden");
+  timerView.classList.toggle("hidden");
+  removeActiveBtnState();
+}
