@@ -26,7 +26,7 @@ main {
   justify-content: space-between;
   margin-right: 10px;
 }
-
+/*TO-DO Add create a new activity */
 .main-form, .timer-box {
   display: flex;
   flex-direction: column;
@@ -37,7 +37,8 @@ main {
   border-radius: 5px;
   padding-left: 78px;
   padding-right: 78px;
-  width: 50vw
+  height: 50vh;
+  width: 50vw;
 }
 
 .mini-img {
@@ -238,6 +239,12 @@ header {
   align-items: center;
 }
 
+.inner-timer-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .timer-box p {
   color: #fff;
   font-size: xx-large;
@@ -265,6 +272,7 @@ header {
   border-radius: 3px;
   background-color: #46424D;
   margin-left: 20px;
+  margin-bottom: 20px;
   height: 90px;
   width: 350px;
   box-shadow: 5px 5px #26222D;
@@ -272,12 +280,22 @@ header {
 .past-activities div{
   height: 28px;
   width: 4px;
-  background-color: #B3FD78;
   margin-right: 5px;
   margin-left: 0;
   margin-bottom: 40px;
   border-radius: 5px;
 }
+
+.study-card {
+  background-color: #B3FD78
+}
+.meditate-card {
+  background-color: #C278FD
+}
+.exercise-card {
+  background-color: #FD8078
+}
+
 .activity-card{
   display: flex;
   flex-direction: column;
@@ -285,6 +303,7 @@ header {
   width: 330px;
   margin: 10px;
 }
+
 #card-category{
   margin: 0;
   color: #FFF;
@@ -300,4 +319,10 @@ header {
   margin: 0;
   color: #FFF;
   margin-top: 10px;
+}
+
+ .new-activity-btn {
+  width: 250px;
+  height: 30px;
+  margin-top: 25px;
 }

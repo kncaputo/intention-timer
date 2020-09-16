@@ -17,7 +17,7 @@
       <section class="main-form">
         <p>Select a category:</p>
         <section class="box">
-          <form class="category-btns button-wrap" id="user-choice">
+          <form class="category-btns button-wrap" id="user-choice" name="form">
             <div class="study-btn">
               <input type="radio" id="study" name="user-choice" value="Study" class="hidden study">
               <label for="study" class="study" id="study-label">
@@ -33,7 +33,7 @@
               </label>
             </div>
             <div>
-              <input type="radio" id="exercise" name="user-choice" value="Study" class="hidden exercise">
+              <input type="radio" id="exercise" name="user-choice" value="Exercise" class="hidden exercise">
               <label for="exercise" class="exercise" id="exercise-label">
                 <img src="./assets/exercise.svg" class="mini-img" id="exercise-graphic">
                 Exercise
@@ -41,7 +41,7 @@
             </div>
           </form>
           <section class="goal-container">
-            <form name="goal-form" class="activity-goal" id="goal-form">
+            <form name="goal-form" class="activity-goal" id="goal-form" name="form">
               <label>What would you like to accomplish during this time?</label>
               <input name="goal" id="goal">
               <div class="alert need-goal hidden">
@@ -50,11 +50,11 @@
               </div>
             </form>
             <article class="duration">
-              <form class="minutes">
+              <form class="minutes" id="mins">
                 <label>Minutes</label>
                 <input type='text' class="time-input" id="min">
               </form>
-              <form class="seconds">
+              <form class="seconds" id="secs">
                 <label>Seconds</label>
                 <input class="time-input" id="sec">
               </form>
@@ -75,12 +75,17 @@
       </section>
     </section>
     <section class="timer-view hidden">
-      <h2 class="section-title">Current Activity</h2>
+      <h2 class="section-title left-title">Current Activity</h2>
       <article class="timer-box">
-        <h3 class="goal-phrase">Phrase</h3>
-        <p class="goal-duration">00:00</p>
-        <button class="timer-btn">START</button>
-        <button class="log-btn hidden">Log Activity</button>
+        <div class="inner-timer-elements">
+          <h3 class="goal-phrase">Phrase</h3>
+          <p class="goal-duration">00:00</p>
+          <button class="timer-btn">START</button>
+          <button class="log-btn hidden">Log Activity</button>
+        </div>
+        <div class="inner-new-activity hidden">
+          <button class="new-activity-btn">CREATE A NEW ACTIVITY</button>
+        </div>
       </article>
     </section>
     <section class="history-panel">
