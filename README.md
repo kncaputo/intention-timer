@@ -33,6 +33,7 @@ Generated covers can be viewed individually, or saved and then displayed with ot
 Objective - When the page loads, we should see a page titled Intention Timer with input fields to be filled out by the user.
 When the user completes the form and each field has been filled out appropriately (this can be ensured by the lack of error messages) the user should be taken to a new page when "Start activity" is clicked.
 The buttons displayed on the main page are:
+
 * Study
 * Meditate
 * Exercise
@@ -41,20 +42,16 @@ The buttons displayed on the main page are:
 
 ### Iteration 1 - Show Random Cover
 Objectives
-1. Every time the user clicks the Show New Random Cover button, a new random cover is created
-2. Every time the user clicks the Show New Random Cover button, the random cover is displayed
-The user can click the Show New Random Cover button to create and display a new cover.  The rest of the page remains the same.
-![](https://media.giphy.com/media/Up8AfA5pyo4PBg28bV/giphy.gif)
+1.
+2.
 
 ### Iteration 2 - Switching Views
 Objectives
-1. When a user clicks the "Make Your Own Cover" button, we should see the form.  The homepage view and saved covers view should be hidden.
-2. When a user clicks the "View Saved Covers" button, we should see the Saved Covers section. The homepage view and form view should be hidden.
-3. In both cases, the "Show New Random Cover" and "Save Cover" buttons are hidden.
-4. In both cases, the "Home" button is visible.
-5. The user can switch between the three views on the correct button clicks.
-The user can navigate between the home view, the saved covers, the form for making your own book by using the three corresponding buttons on the top of the page.
-![](https://media.giphy.com/media/hR16V8g0EJX570ZCm4/giphy.gif)
+1. 
+2. 
+3. 
+4. 
+5. 
 
 ### Iteration 3 -
 Objectives
@@ -76,7 +73,7 @@ Objective
 ### Iteration 5
 Objective
 1. 
-1:14
+
 
 
 
