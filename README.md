@@ -1,4 +1,4 @@
-# intention-timer - group project
+# Intention-Timer - group project
 Mod 1
 
 [Deployed Site](https://peytonjo.github.io/intention-timer/)
