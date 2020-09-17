@@ -17,6 +17,10 @@ main {
   height: 100vh;
 }
 
+h2 {
+font-weight: 300;
+}
+
 .hidden {
   display: none !important;
 }
@@ -26,7 +30,7 @@ main {
   justify-content: space-between;
   margin-right: 10px;
 }
-/*TO-DO Add create a new activity */
+
 .main-form, .timer-box {
   display: flex;
   flex-direction: column;
@@ -121,12 +125,7 @@ body {
   justify-content: space-between;
 }
 
-.minutes {
-  display: flex;
-  flex-direction: column;
-}
-
-.seconds {
+.minutes, .seconds {
   display: flex;
   flex-direction: column;
 }
@@ -158,7 +157,6 @@ body {
 }
 
 header {
-  font-weight: 300;
   background-color: #46424D;
   color: #FFF;
   display: flex;
@@ -233,13 +231,7 @@ header {
   border: solid 4px #FD8078
 }
 
-.timer-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.inner-timer-elements {
+.timer-box, .inner-timer-elements {
   display: flex;
   flex-direction: column;
   align-items: center;
