@@ -7,6 +7,7 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC  */
+
 * {
   font-family: "montserrat";
 }
@@ -281,9 +282,11 @@ header {
 .study-card {
   background-color: #B3FD78
 }
+
 .meditate-card {
   background-color: #C278FD
 }
+
 .exercise-card {
   background-color: #FD8078
 }

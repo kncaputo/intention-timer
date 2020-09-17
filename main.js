@@ -141,7 +141,6 @@ function formatRemainingTime(time) {
 function updateTimer(currentSeconds) {
   currentActivity.startTimer();
   formatRemainingTime(currentSeconds);
-
   var interval = setInterval(function() {
     currentSeconds--;
     formatRemainingTime(currentSeconds);
@@ -165,7 +164,6 @@ function triggerCompleteView() {
 
 function createCard() {
   document.querySelector(".default-message").classList.add("hidden");
-
   var htmlBlock = `
         <article class="past-activities">
           <box class="activity-card">
@@ -217,7 +215,6 @@ function retrieveCards() {
 
 function retrieveKeys() {
   var ids = Object.keys(localStorage);
-
   for (var i = 0; i < ids.length; i++) {
     pastActivities.push(ids[i]);
   }
