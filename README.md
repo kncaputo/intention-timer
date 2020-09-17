@@ -6,7 +6,7 @@ Mod 1
 * [Contributors](#contributors)
 * [Set up](#set-up)
 * [Iteration 0 - Main Page](#Iteration-0-Main-Page)
-* [Iteration 1 - Show Random Cover](#Iteration-1-Show-Random-Cover)
+* [Iteration 1](#Iteration-1)
 
 
 [Deployed Site](https://peytonjo.github.io/iteration-timer/)
