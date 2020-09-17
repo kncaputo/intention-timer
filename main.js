@@ -1,4 +1,4 @@
-var categoryBtns = document.querySelector('.category-btns');
+var categoryBtns = document.querySelector(".category-btns");
 var complete = document.querySelector(".complete");
 var completedView = document.querySelector(".inner-new-activity");
 var goalForm = document.querySelector(".main-panel");
@@ -6,55 +6,57 @@ var inputBox = document.querySelector(".time-input");
 var logBtn = document.querySelector(".log-btn");
 var newActivityBtn = document.querySelector(".new-activity-btn");
 var start = document.querySelector(".start");
-var startActivityBtn = document.querySelector('.start-activity-btn');
+var startActivityBtn = document.querySelector(".start-activity-btn");
 var timerView = document.querySelector(".timer-view");
 
 var currentActivity;
 var pastActivities = [];
 
-startActivityBtn.addEventListener('click', startActivity);
-start.addEventListener('click', function() {
-  updateTimer(currentActivity.startTimer());
-});
-logBtn.addEventListener('click', function() {
+logBtn.addEventListener("click", function() {
   createCard();
   hideTimer();
 });
-newActivityBtn.addEventListener('click', returnHome);
+
+start.addEventListener("click", function() {
+  updateTimer(currentActivity.startTimer());
+});
+
+startActivityBtn.addEventListener("click", startActivity);
+
+newActivityBtn.addEventListener("click", returnHome);
 window.onload = retrieveKeys();
 
-//TO-Do: Refactor HERE
 inputBox.addEventListener("keydown", function startActivity(event) {
   var invalidChars = ["-", "+", "e"];
   if (invalidChars.includes(event.key)) {
     event.preventDefault();
   }
-})
+});
 
-categoryBtns.addEventListener('click', function(event) {
-  if (event.target.id.includes('study')) {
-    activateBtn('study');
+categoryBtns.addEventListener("click", function(event) {
+  if (event.target.id.includes("study")) {
+    activateBtn("study");
   }
-  if (event.target.id.includes('meditate')) {
-    activateBtn('meditate');
+  if (event.target.id.includes("meditate")) {
+    activateBtn("meditate");
   }
-  if (event.target.id.includes('exercise')) {
-    activateBtn('exercise');
+  if (event.target.id.includes("exercise")) {
+    activateBtn("exercise");
   }
-})
+});
 
 function activateBtn(category) {
   removeActiveBtnState();
   var imgId = `${category}-graphic`;
   document.getElementById(imgId).src = `./assets/${category}-active.svg`
-}
+};
 
 function removeActiveBtnState() {
-  var categories = ['study', 'meditate', 'exercise'];
+  var categories = ["study", "meditate", "exercise"];
   for (var i = 0; i < categories.length; i++) {
     document.getElementById(`${categories[i]}-graphic`).src = `./assets/${categories[i]}.svg`
   }
-}
+};
 
 function startActivity() {
   var catValue = document.querySelector(".category-btns").elements["user-choice"].value;
@@ -64,8 +66,8 @@ function startActivity() {
 
   if (validateInput(catValue, goal, min, sec)) {
     createInstance(catValue, goal, min, sec);
-  };
-}
+  }
+};
 
 function validateInput(catValue, goal, min, sec) {
   if (!goal) {
@@ -77,24 +79,24 @@ function validateInput(catValue, goal, min, sec) {
   } else {
     return true;
   }
-}
+};
 
 function createInstance(catValue, goal, min, sec) {
   currentActivity = new Activity(catValue, goal, parseInt(min), parseInt(sec));
   switchView();
-}
+};
 
 function triggerAlert(alertNeeded) {
   if (alertNeeded === "goal") {
-    document.querySelector('.need-goal').classList.toggle('hidden');
+    document.querySelector(".need-goal").classList.toggle("hidden");
   }
   if (alertNeeded === "time") {
-    document.querySelector('.need-duration').classList.toggle('hidden');
+    document.querySelector(".need-duration").classList.toggle("hidden");
   }
   if (alertNeeded === "tooLarge") {
-    document.querySelector('.limit-duration').classList.toggle('hidden');
+    document.querySelector(".limit-duration").classList.toggle("hidden");
   }
-}
+};
 
 function switchView() {
   if (currentActivity.category === "Study") {
@@ -110,30 +112,36 @@ function switchView() {
   timerView.classList.remove("hidden");
   var currentSeconds = (currentActivity.minutes * 60) + currentActivity.seconds;
   formatRemainingTime(currentSeconds);
-}
+};
 
 function displayInput(time) {
   document.querySelector(".goal-phrase").innerText = `${currentActivity.description}`;
   document.querySelector(".goal-duration").innerText = `${time}`;
-}
+};
 
 function formatRemainingTime(time) {
   var minutes = Math.floor(time / 60);
   var seconds = time % 60;
 
-  if (seconds < 10 && seconds > 0) {seconds = `0${seconds}`;}
-  if (seconds < 1) {seconds = '00';}
-  if (minutes < 10 && minutes > 0) {minutes = `0${minutes}`;}
-  if (minutes === 0) {minutes = '00'}
+  if (seconds < 10 && seconds > 0) {
+    seconds = `0${seconds}`;
+  }
+  if (seconds < 1) {
+    seconds = "00";
+  }
+  if (minutes < 10 && minutes > 0) {
+    minutes = `0${minutes}`;
+  }
+  if (minutes === 0) {
+    minutes = "00"
+  }
   displayInput(`${minutes}:${seconds}`);
-}
-
+};
 
 function updateTimer(currentSeconds) {
   currentActivity.startTimer();
   formatRemainingTime(currentSeconds);
-
-  var interval = setInterval(function () {
+  var interval = setInterval(function() {
     currentSeconds--;
     formatRemainingTime(currentSeconds);
     if (!currentSeconds) {
@@ -142,47 +150,48 @@ function updateTimer(currentSeconds) {
       currentActivity.markComplete();
       pastActivities.push(currentActivity.saveToStorage(currentActivity));
       if (currentActivity.completed === true) {
-        alert("You've completed the activity!")
+        alert("You\'ve completed the activity!");
       }
     }
   }, 1000);
-}
+};
 
 function triggerCompleteView() {
-  start.classList.toggle('hidden');
-  complete.classList.toggle('hidden');
-  document.querySelector('.log-btn').classList.toggle('hidden')
-}
+  start.classList.toggle("hidden");
+  complete.classList.toggle("hidden");
+  document.querySelector(".log-btn").classList.toggle("hidden")
+};
 
 function createCard() {
-  document.querySelector('.default-message').classList.add("hidden");
-
+  document.querySelector(".default-message").classList.add("hidden");
   var htmlBlock = `
         <article class="past-activities">
-          <box class='activity-card'>
-            <p id='card-category'>${currentActivity.category}</p>
-            <p id='card-time'>${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
-            <p id='card-task'>${currentActivity.description}</p>
+          <box class="activity-card">
+            <p id="card-category">${currentActivity.category}</p>
+            <p id="card-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+            <p id="card-task">${currentActivity.description}</p>
           </box>
           <div class="marker"></div>
         </article>`;
-  document.querySelector('.card-box').insertAdjacentHTML('afterbegin', htmlBlock)
-  if (currentActivity.category === "Study") {document.querySelector(".marker").classList.add("study-card")}
-  if (currentActivity.category === "Meditate") {document.querySelector(".marker").classList.add("meditate-card")}
-  if (currentActivity.category === "Exercise") {document.querySelector(".marker").classList.add("exercise-card")}
-}
+  document.querySelector(".card-box").insertAdjacentHTML("afterbegin", htmlBlock)
+  if (currentActivity.category === "Study") {
+    document.querySelector(".marker").classList.add("study-card")
+  }
+  if (currentActivity.category === "Meditate") {
+    document.querySelector(".marker").classList.add("meditate-card")
+  }
+  if (currentActivity.category === "Exercise") {
+    document.querySelector(".marker").classList.add("exercise-card")
+  }
+};
 
 function hideTimer() {
- document.querySelector(".left-title").innerText = "Completed Activity";
- document.querySelector(".inner-timer-elements").classList.add("hidden");
- document.querySelector(".inner-new-activity").classList.remove("hidden");
-}
+  document.querySelector(".left-title").innerText = "Completed Activity";
+  document.querySelector(".inner-timer-elements").classList.add("hidden");
+  document.querySelector(".inner-new-activity").classList.remove("hidden");
+};
 
 function returnHome() {
-  var userId = document.querySelector("#user-choice");
-  var goalId = document.querySelector("#goal-form");
-  var minuteId = document.querySelector("#mins");
-  var secondsId = document.querySelector("#secs");
   document.getElementById("user-choice").reset();
   document.getElementById("goal-form").reset();
   document.getElementById("mins").reset();
@@ -194,7 +203,7 @@ function returnHome() {
   timerView.classList.toggle("hidden");
   removeActiveBtnState();
   triggerCompleteView();
-}
+};
 
 function retrieveCards() {
   for (var i = 0; i < pastActivities.length; i++) {
@@ -202,12 +211,12 @@ function retrieveCards() {
     currentActivity = JSON.parse(retrievedPastAct);
     createCard();
   }
-}
+};
+
 function retrieveKeys() {
   var ids = Object.keys(localStorage);
-
   for (var i = 0; i < ids.length; i++) {
     pastActivities.push(ids[i]);
   }
   retrieveCards();
-}
+};

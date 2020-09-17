@@ -7,6 +7,7 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC  */
+
 * {
   font-family: "montserrat";
 }
@@ -15,6 +16,10 @@ main {
   display: flex;
   flex-direction: row;
   height: 100vh;
+}
+
+h2 {
+font-weight: 300;
 }
 
 .hidden {
@@ -26,7 +31,7 @@ main {
   justify-content: space-between;
   margin-right: 10px;
 }
-/*TO-DO Add create a new activity */
+
 .main-form, .timer-box {
   display: flex;
   flex-direction: column;
@@ -121,12 +126,7 @@ body {
   justify-content: space-between;
 }
 
-.minutes {
-  display: flex;
-  flex-direction: column;
-}
-
-.seconds {
+.minutes, .seconds {
   display: flex;
   flex-direction: column;
 }
@@ -158,7 +158,6 @@ body {
 }
 
 header {
-  font-weight: 300;
   background-color: #46424D;
   color: #FFF;
   display: flex;
@@ -233,13 +232,7 @@ header {
   border: solid 4px #FD8078
 }
 
-.timer-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.inner-timer-elements {
+.timer-box, .inner-timer-elements {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,9 +282,11 @@ header {
 .study-card {
   background-color: #B3FD78
 }
+
 .meditate-card {
   background-color: #C278FD
 }
+
 .exercise-card {
   background-color: #FD8078
 }
