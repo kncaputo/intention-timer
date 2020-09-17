@@ -52,7 +52,7 @@ Objectives
 4. when strt is selected new instantiation of activity class is made
 
 
-### Iteration 3 - Build an NVP
+### Iteration 3 - Build an MVP
 Objectives
 1. User can start the timer by selecting start
 2. The user can see the timer counting down by seconds
