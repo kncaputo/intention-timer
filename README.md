@@ -5,8 +5,8 @@ Mod 1
 
 * [Contributors](#contributors)
 * [Set up](#set-up)
-* [Iteration 0](#Iteration-0)- Main Page
-* [Iteration 1](#Iteration-1)- Activity Class
+* [Iteration 0 - Comp setup](#Iteration-0-- Comp setup)
+* [Iteration 1](#Iteration-1)
 
 
 [Deployed Site](https://peytonjo.github.io/iteration-timer/)
