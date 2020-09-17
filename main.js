@@ -72,7 +72,7 @@ function startActivity() {
 function validateInput(catValue, goal, min, sec) {
   if (!goal) {
     triggerAlert("goal");
-  } else if (!min || !sec) {
+  } else if (!min || !sec || !parseInt(min) || !parseInt(sec)) {
     triggerAlert("time");
   } else if (parseInt(min) > 59 || parseInt(sec) > 59) {
     triggerAlert("tooLarge");
