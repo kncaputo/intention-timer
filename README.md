@@ -25,6 +25,8 @@ The buttons displayed on the main page are:
 * Exercise
 * Start Activity
 
+![](https://media.giphy.com/media/XOpMX19S5BgFuLAyd1/giphy.gif)
+
 
 ### Iteration 1 - Activity Class
 Objectives
@@ -37,6 +39,8 @@ Objectives
 3. Create functionality for start button
 4. When start is selected new instantiation of activity class is made
 
+![](https://media.giphy.com/media/GIdZEdeHVY1vr660G6/giphy.gif)
+
 
 ### Iteration 3 - Build an MVP
 Objectives
@@ -44,6 +48,7 @@ Objectives
 2. The user can see the timer counting down by seconds
 3. When the timer completes an alert with appear 
 
+![](https://media.giphy.com/media/tL4nH6uMQGJb7PQ7YC/giphy.gif)
 
 ### Iteration 4 - logging past activity
 ObjectiveS
@@ -52,10 +57,14 @@ ObjectiveS
 3. When the user clicks 'log activity' the information is displayed in a card 
 4. Cards are displayed in past activity section
 
+![](https://media.giphy.com/media/SsqkaWGpaGUq7wcFqo/giphy.gif)
 
 ### Iteration 5
 Objective
 1. When page is refreshed the past activity cards are still displayed
+
+![](https://media.giphy.com/media/7aJA1VyitEhf6ZQEqH/giphy.gif)
+![](https://media.giphy.com/media/YeYpy3GVqwukjhM4rm/giphy.gif)
 
 
 
