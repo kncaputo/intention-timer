@@ -40,7 +40,7 @@ The buttons displayed on the main page are:
 * Start Activity
 
 
-### Iteration 1 - Activity Class
+### Iteration 1 
 Objectives
 1. Create an activity class with properties and methods.
 
