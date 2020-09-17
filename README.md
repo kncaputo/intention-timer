@@ -5,8 +5,8 @@ Mod 1
 
 * [Contributors](#contributors)
 * [Set up](#set-up)
-* [Iteration 0 - Main Page](#Iteration-0-Main-Page)
-* [Iteration 1](#Iteration-1)
+* [Iteration 0](#Iteration-0)- Main Page
+* [Iteration 1](#Iteration-1)- Activity Class
 
 
 [Deployed Site](https://peytonjo.github.io/iteration-timer/)
@@ -40,8 +40,7 @@ The buttons displayed on the main page are:
 * Start Activity
 
 
-### Iteration 1 
-Activity Class
+### Iteration 1 - Activity Class
 Objectives
 1. Create an activity class with properties and methods.
 
